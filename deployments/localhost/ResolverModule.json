@@ -1,0 +1,613 @@
+{
+  "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_resolverAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_resolverData",
+          "type": "bytes"
+        }
+      ],
+      "name": "encodeModuleArg",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "execAddresses",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "fee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feeToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "nonce1Balance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onCreateTask",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "taskId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "taskCreator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "execAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "execData",
+          "type": "bytes"
+        }
+      ],
+      "name": "postExecCall",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "_taskCreator",
+          "type": "address"
+        }
+      ],
+      "name": "preCancelTask",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_taskCreator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_execAddress",
+          "type": "address"
+        }
+      ],
+      "name": "preCreateTask",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_execAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_execData",
+          "type": "bytes"
+        }
+      ],
+      "name": "preExecCall",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "taskCreator",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum LibDataTypes.Module",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "name": "taskModuleAddresses",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "timedTask",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "nextExec",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "interval",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x297412ae7e8f81f39a3f5579318a6e2100d3a6eb205254158aed5cc343b080ce",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+    "transactionIndex": 0,
+    "gasUsed": "658376",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x577c56a8421dd5368c48a3ec829fb6c9c6cdd0a23d458e4ce46973d324f1c756",
+    "transactionHash": "0x297412ae7e8f81f39a3f5579318a6e2100d3a6eb205254158aed5cc343b080ce",
+    "logs": [],
+    "blockNumber": 24224,
+    "cumulativeGasUsed": "658376",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "3e732f23068f6192d2fba984e5b4f4ff",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_resolverAddress\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_resolverData\",\"type\":\"bytes\"}],\"name\":\"encodeModuleArg\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"execAddresses\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feeToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"nonce1Balance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"onCreateTask\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"taskId\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"taskCreator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"execAddress\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"execData\",\"type\":\"bytes\"}],\"name\":\"postExecCall\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_taskCreator\",\"type\":\"address\"}],\"name\":\"preCancelTask\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_taskCreator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_execAddress\",\"type\":\"address\"}],\"name\":\"preCreateTask\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_execAddress\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"_execData\",\"type\":\"bytes\"}],\"name\":\"preExecCall\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"taskCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum LibDataTypes.Module\",\"name\":\"\",\"type\":\"uint8\"}],\"name\":\"taskModuleAddresses\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"timedTask\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"nextExec\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"interval\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"encodeModuleArg(address,bytes)\":{\"params\":{\"_resolverAddress\":\"Address of resolver.\",\"_resolverData\":\"Data passed to resolver.\"}},\"onCreateTask(bytes32,address,address,bytes,bytes)\":{\"params\":{\"execAddress\":\"Address of contract that should be called.\",\"execData\":\"Execution data to be called with / function selector if execution data is yet to be determined.\",\"initModuleArg\":\"Encoded arguments for module if any.\",\"taskCreator\":\"The address which created the task.\",\"taskId\":\"Unique hash of the task created.\"}},\"postExecCall(bytes32,address,address,bytes)\":{\"params\":{\"execAddress\":\"Address of contract that should be called.\",\"execData\":\"Execution data to be called with / function selector if execution data is yet to be determined.\",\"taskCreator\":\"The address which created the task.\",\"taskId\":\"Unique hash of the task created.\"}},\"preCancelTask(bytes32,address)\":{\"details\":\"Modules can override taskCreator.\",\"params\":{\"taskCreator\":\"The address which created the task.\",\"taskId\":\"Unique hash of the task created.\"},\"returns\":{\"_0\":\"address Overriden or original taskCreator.\"}},\"preCreateTask(address,address)\":{\"details\":\"Modules can override execAddress or taskCreator. {See ProxyModule-preCreateTask}\",\"params\":{\"execAddress\":\"Address of contract that should be called.\",\"taskCreator\":\"The address which created the task.\"},\"returns\":{\"_0\":\"address Overriden or original taskCreator.\",\"_1\":\"address Overriden or original execAddress.\"}},\"preExecCall(bytes32,address,address,bytes)\":{\"params\":{\"execAddress\":\"Address of contract that should be called.\",\"execData\":\"Execution data to be called with / function selector if execution data is yet to be determined.\",\"taskCreator\":\"The address which created the task.\",\"taskId\":\"Unique hash of the task created.\"},\"returns\":{\"_0\":\"address Overriden or original execution address.\",\"_1\":\"bytes Overriden or original execution data.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"encodeModuleArg(address,bytes)\":{\"notice\":\"Helper function to encode arguments for ResolverModule.\"},\"onCreateTask(bytes32,address,address,bytes,bytes)\":{\"notice\":\"Initiates task module whenever `createTask` is being called.\"},\"postExecCall(bytes32,address,address,bytes)\":{\"notice\":\"Called during `exec` and after execAddress is called.\"},\"preCancelTask(bytes32,address)\":{\"notice\":\"Called before taskId is removed from _createdTasks[].\"},\"preCreateTask(address,address)\":{\"notice\":\"Called before generating taskId.\"},\"preExecCall(bytes32,address,address,bytes)\":{\"notice\":\"Called during `exec` and before execAddress is called.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/taskModules/ResolverModule.sol\":\"ResolverModule\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/structs/EnumerableSet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/structs/EnumerableSet.sol)\\n// This file was procedurally generated from scripts/generate/templates/EnumerableSet.js.\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Library for managing\\n * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive\\n * types.\\n *\\n * Sets have the following properties:\\n *\\n * - Elements are added, removed, and checked for existence in constant time\\n * (O(1)).\\n * - Elements are enumerated in O(n). No guarantees are made on the ordering.\\n *\\n * ```solidity\\n * contract Example {\\n *     // Add the library methods\\n *     using EnumerableSet for EnumerableSet.AddressSet;\\n *\\n *     // Declare a set state variable\\n *     EnumerableSet.AddressSet private mySet;\\n * }\\n * ```\\n *\\n * As of v3.3.0, sets of type `bytes32` (`Bytes32Set`), `address` (`AddressSet`)\\n * and `uint256` (`UintSet`) are supported.\\n *\\n * [WARNING]\\n * ====\\n * Trying to delete such a structure from storage will likely result in data corruption, rendering the structure\\n * unusable.\\n * See https://github.com/ethereum/solidity/pull/11843[ethereum/solidity#11843] for more info.\\n *\\n * In order to clean an EnumerableSet, you can either remove all elements one by one or create a fresh instance using an\\n * array of EnumerableSet.\\n * ====\\n */\\nlibrary EnumerableSet {\\n    // To implement this library for multiple types with as little code\\n    // repetition as possible, we write it in terms of a generic Set type with\\n    // bytes32 values.\\n    // The Set implementation uses private functions, and user-facing\\n    // implementations (such as AddressSet) are just wrappers around the\\n    // underlying Set.\\n    // This means that we can only create new EnumerableSets for types that fit\\n    // in bytes32.\\n\\n    struct Set {\\n        // Storage of set values\\n        bytes32[] _values;\\n        // Position is the index of the value in the `values` array plus 1.\\n        // Position 0 is used to mean a value is not in the set.\\n        mapping(bytes32 value => uint256) _positions;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function _add(Set storage set, bytes32 value) private returns (bool) {\\n        if (!_contains(set, value)) {\\n            set._values.push(value);\\n            // The value is stored at length-1, but we add 1 to all indexes\\n            // and use 0 as a sentinel value\\n            set._positions[value] = set._values.length;\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function _remove(Set storage set, bytes32 value) private returns (bool) {\\n        // We cache the value's position to prevent multiple reads from the same storage slot\\n        uint256 position = set._positions[value];\\n\\n        if (position != 0) {\\n            // Equivalent to contains(set, value)\\n            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in\\n            // the array, and then remove the last element (sometimes called as 'swap and pop').\\n            // This modifies the order of the array, as noted in {at}.\\n\\n            uint256 valueIndex = position - 1;\\n            uint256 lastIndex = set._values.length - 1;\\n\\n            if (valueIndex != lastIndex) {\\n                bytes32 lastValue = set._values[lastIndex];\\n\\n                // Move the lastValue to the index where the value to delete is\\n                set._values[valueIndex] = lastValue;\\n                // Update the tracked position of the lastValue (that was just moved)\\n                set._positions[lastValue] = position;\\n            }\\n\\n            // Delete the slot where the moved value was stored\\n            set._values.pop();\\n\\n            // Delete the tracked position for the deleted slot\\n            delete set._positions[value];\\n\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function _contains(Set storage set, bytes32 value) private view returns (bool) {\\n        return set._positions[value] != 0;\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function _length(Set storage set) private view returns (uint256) {\\n        return set._values.length;\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function _at(Set storage set, uint256 index) private view returns (bytes32) {\\n        return set._values[index];\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function _values(Set storage set) private view returns (bytes32[] memory) {\\n        return set._values;\\n    }\\n\\n    // Bytes32Set\\n\\n    struct Bytes32Set {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _add(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _remove(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(Bytes32Set storage set, bytes32 value) internal view returns (bool) {\\n        return _contains(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(Bytes32Set storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {\\n        return _at(set._inner, index);\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(Bytes32Set storage set) internal view returns (bytes32[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        bytes32[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // AddressSet\\n\\n    struct AddressSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(AddressSet storage set, address value) internal returns (bool) {\\n        return _add(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(AddressSet storage set, address value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(AddressSet storage set, address value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(AddressSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(AddressSet storage set, uint256 index) internal view returns (address) {\\n        return address(uint160(uint256(_at(set._inner, index))));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(AddressSet storage set) internal view returns (address[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        address[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // UintSet\\n\\n    struct UintSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _add(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(UintSet storage set, uint256 value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(UintSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(UintSet storage set, uint256 index) internal view returns (uint256) {\\n        return uint256(_at(set._inner, index));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(UintSet storage set) internal view returns (uint256[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        uint256[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n}\\n\",\"keccak256\":\"0x86c1470cbfd878491e5de030072b647352d36bd27122cffb928970b1945282aa\",\"license\":\"MIT\"},\"contracts/AutomateStorage.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity ^0.8.12;\\r\\nimport {\\r\\n    EnumerableSet\\r\\n} from \\\"@openzeppelin/contracts/utils/structs/EnumerableSet.sol\\\";\\r\\nimport {LibDataTypes} from \\\"./libraries/LibDataTypes.sol\\\";\\r\\n\\r\\n/**\\r\\n * @notice Storage layout of Automate smart contract.\\r\\n */\\r\\n// solhint-disable max-states-count\\r\\nabstract contract AutomateStorage {\\r\\n    mapping(bytes32 => address) public taskCreator; ///@dev Deprecated\\r\\n    mapping(bytes32 => address) public execAddresses; ///@dev Deprecated\\r\\n    mapping(address => EnumerableSet.Bytes32Set) internal _createdTasks;\\r\\n\\r\\n    uint256 public fee;\\r\\n    address public feeToken;\\r\\n\\r\\n    ///@dev Appended State\\r\\n    mapping(bytes32 => LibDataTypes.Time) public timedTask; ///@dev Deprecated\\r\\n    mapping(LibDataTypes.Module => address) public taskModuleAddresses;\\r\\n    mapping(bytes32 => uint256) public nonce1Balance; ///@dev Deprecated\\r\\n}\\r\\n\",\"keccak256\":\"0x006a8f1e6f6b8e8f4f4cfc49990db99f399b193df049f3b3b835e480fe73be85\",\"license\":\"UNLICENSED\"},\"contracts/interfaces/ITaskModule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\n// solhint-disable max-line-length\\r\\ninterface ITaskModule {\\r\\n    /**\\r\\n     * @notice Called before generating taskId.\\r\\n     * @dev Modules can override execAddress or taskCreator. {See ProxyModule-preCreateTask}\\r\\n     *\\r\\n     * @param taskCreator The address which created the task.\\r\\n     * @param execAddress Address of contract that should be called.\\r\\n     *\\r\\n     * @return address Overriden or original taskCreator.\\r\\n     * @return address Overriden or original execAddress.\\r\\n     */\\r\\n    function preCreateTask(address taskCreator, address execAddress)\\r\\n        external\\r\\n        returns (address, address);\\r\\n\\r\\n    /**\\r\\n     * @notice Initiates task module whenever `createTask` is being called.\\r\\n     *\\r\\n     * @param taskId Unique hash of the task created.\\r\\n     * @param taskCreator The address which created the task.\\r\\n     * @param execAddress Address of contract that should be called.\\r\\n     * @param execData Execution data to be called with / function selector if execution data is yet to be determined.\\r\\n     * @param initModuleArg Encoded arguments for module if any.\\r\\n     */\\r\\n    function onCreateTask(\\r\\n        bytes32 taskId,\\r\\n        address taskCreator,\\r\\n        address execAddress,\\r\\n        bytes calldata execData,\\r\\n        bytes calldata initModuleArg\\r\\n    ) external;\\r\\n\\r\\n    /**\\r\\n     * @notice Called before taskId is removed from _createdTasks[].\\r\\n     * @dev Modules can override taskCreator.\\r\\n     *\\r\\n     * @param taskId Unique hash of the task created.\\r\\n     * @param taskCreator The address which created the task.\\r\\n     *\\r\\n     * @return address Overriden or original taskCreator.\\r\\n     */\\r\\n    function preCancelTask(bytes32 taskId, address taskCreator)\\r\\n        external\\r\\n        returns (address);\\r\\n\\r\\n    /**\\r\\n     * @notice Called during `exec` and before execAddress is called.\\r\\n     *\\r\\n     * @param taskId Unique hash of the task created.\\r\\n     * @param taskCreator The address which created the task.\\r\\n     * @param execAddress Address of contract that should be called.\\r\\n     * @param execData Execution data to be called with / function selector if execution data is yet to be determined.\\r\\n     *\\r\\n     * @return address Overriden or original execution address.\\r\\n     * @return bytes Overriden or original execution data.\\r\\n     */\\r\\n    function preExecCall(\\r\\n        bytes32 taskId,\\r\\n        address taskCreator,\\r\\n        address execAddress,\\r\\n        bytes calldata execData\\r\\n    ) external returns (address, bytes memory);\\r\\n\\r\\n    /**\\r\\n     * @notice Called during `exec` and after execAddress is called.\\r\\n     *\\r\\n     * @param taskId Unique hash of the task created.\\r\\n     * @param taskCreator The address which created the task.\\r\\n     * @param execAddress Address of contract that should be called.\\r\\n     * @param execData Execution data to be called with / function selector if execution data is yet to be determined.\\r\\n     */\\r\\n    function postExecCall(\\r\\n        bytes32 taskId,\\r\\n        address taskCreator,\\r\\n        address execAddress,\\r\\n        bytes calldata execData\\r\\n    ) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x4b6c96ccd21885c94d07c35560773611d0374fef52edd1c434d5a5285c507325\",\"license\":\"MIT\"},\"contracts/libraries/LibDataTypes.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\n// solhint-disable max-line-length\\r\\nlibrary LibDataTypes {\\r\\n    /**\\r\\n     * @notice Whitelisted modules that are available for users to customise conditions and specifications of their tasks.\\r\\n     *\\r\\n     * @param RESOLVER Use dynamic condition & input data for execution. {See ResolverModule.sol}\\r\\n     * @param DEPRECATED_TIME deprecated\\r\\n     * @param PROXY Creates a dedicated caller (msg.sender) to be used when executing the task. {See ProxyModule.sol}\\r\\n     * @param SINGLE_EXEC Task is cancelled after one execution. {See SingleExecModule.sol}\\r\\n     * @param WEB3_FUNCTION Use off-chain condition & input data for execution. {See Web3FunctionModule.sol}\\r\\n     * @param TRIGGER Repeated execution of task ata a specified timing and interval or cron. {See TriggerModule.sol}\\r\\n     */\\r\\n    enum Module {\\r\\n        RESOLVER,\\r\\n        DEPRECATED_TIME, // @deprecated\\r\\n        PROXY,\\r\\n        SINGLE_EXEC,\\r\\n        WEB3_FUNCTION,\\r\\n        TRIGGER\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Struct to contain modules and their relative arguments that are used for task creation.\\r\\n     *\\r\\n     * @param modules List of selected modules.\\r\\n     * @param args Arguments of modules if any. Pass \\\"0x\\\" for modules which does not require args {See encodeModuleArg}\\r\\n     */\\r\\n    struct ModuleData {\\r\\n        Module[] modules;\\r\\n        bytes[] args;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Struct for time module.\\r\\n     *\\r\\n     * @param nextExec Time when the next execution should occur.\\r\\n     * @param interval Time interval between each execution.\\r\\n     */\\r\\n    struct Time {\\r\\n        uint128 nextExec;\\r\\n        uint128 interval;\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Types of trigger\\r\\n     *\\r\\n     * @param TIME Time triggered tasks, starting at a specific time and triggered intervally\\r\\n     * @param CRON Cron triggered tasks, triggered according to the cron conditions\\r\\n     */\\r\\n    enum TriggerType {\\r\\n        TIME,\\r\\n        CRON,\\r\\n        EVENT,\\r\\n        BLOCK\\r\\n    }\\r\\n\\r\\n    /**\\r\\n     * @notice Struct for trigger module\\r\\n     *\\r\\n     * @param triggerType Type of the trigger\\r\\n     * @param triggerConfig Trigger configuration that shuold be parsed according to triggerType\\r\\n     */\\r\\n    struct TriggerModuleData {\\r\\n        TriggerType triggerType;\\r\\n        bytes triggerConfig;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x1ebb4822c20f0455dbef7f4726efb304ca25be1cf8e413964557b332f09d765f\",\"license\":\"MIT\"},\"contracts/taskModules/ResolverModule.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\nimport {TaskModuleBase} from \\\"./TaskModuleBase.sol\\\";\\r\\n\\r\\ncontract ResolverModule is TaskModuleBase {\\r\\n    /**\\r\\n     * @notice Helper function to encode arguments for ResolverModule.\\r\\n     *\\r\\n     * @param _resolverAddress Address of resolver.\\r\\n     * @param _resolverData Data passed to resolver.\\r\\n     */\\r\\n    function encodeModuleArg(\\r\\n        address _resolverAddress,\\r\\n        bytes calldata _resolverData\\r\\n    ) external pure returns (bytes memory) {\\r\\n        return abi.encode(_resolverAddress, _resolverData);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x00f30210e658fa617bd98e170196ac98bb5d7281a1fbb8bbf8248b22da64566a\",\"license\":\"UNLICENSED\"},\"contracts/taskModules/TaskModuleBase.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\nimport {AutomateStorage} from \\\"../AutomateStorage.sol\\\";\\r\\nimport {ITaskModule} from \\\"../interfaces/ITaskModule.sol\\\";\\r\\n\\r\\n// solhint-disable no-empty-blocks\\r\\nabstract contract TaskModuleBase is AutomateStorage, ITaskModule {\\r\\n    ///@inheritdoc ITaskModule\\r\\n    function preCreateTask(address _taskCreator, address _execAddress)\\r\\n        external\\r\\n        virtual\\r\\n        override\\r\\n        returns (address, address)\\r\\n    {\\r\\n        return (_taskCreator, _execAddress);\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc ITaskModule\\r\\n    function onCreateTask(\\r\\n        bytes32,\\r\\n        address,\\r\\n        address,\\r\\n        bytes calldata,\\r\\n        bytes calldata\\r\\n    ) external virtual override {}\\r\\n\\r\\n    ///@inheritdoc ITaskModule\\r\\n    function preCancelTask(bytes32, address _taskCreator)\\r\\n        external\\r\\n        virtual\\r\\n        override\\r\\n        returns (address)\\r\\n    {\\r\\n        return _taskCreator;\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc ITaskModule\\r\\n    function preExecCall(\\r\\n        bytes32,\\r\\n        address,\\r\\n        address _execAddress,\\r\\n        bytes calldata _execData\\r\\n    ) external virtual override returns (address, bytes memory) {\\r\\n        return (_execAddress, _execData);\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc ITaskModule\\r\\n    function postExecCall(\\r\\n        bytes32 taskId,\\r\\n        address taskCreator,\\r\\n        address execAddress,\\r\\n        bytes calldata execData\\r\\n    ) external virtual override {}\\r\\n}\\r\\n\",\"keccak256\":\"0xdc8701badb493edc5dde2740aa27e6a9a7215724fceb2185412dea5ba11b182e\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610af3806100206000396000f3fe608060405234801561001057600080fd5b50600436106100cf5760003560e01c8063ac21631a1161008c578063b81cd86611610066578063b81cd8661461024b578063c10304f71461027c578063cd3d4fb9146102ad578063ddca3f43146102dd576100cf565b8063ac21631a146101e3578063b0ccbdf014610213578063b2db0b411461022f576100cf565b806314ae9926146100d45780632e6e0bd0146101045780633c706c6f14610134578063647846a5146101645780636d2dd29f1461018257806376474e6a146101b2575b600080fd5b6100ee60048036038101906100e9919061058a565b6102fb565b6040516100fb91906105d9565b60405180910390f35b61011e600480360381019061011991906105f4565b610306565b60405161012b91906105d9565b60405180910390f35b61014e60048036038101906101499190610686565b610339565b60405161015b9190610776565b60405180910390f35b61016c610368565b60405161017991906105d9565b60405180910390f35b61019c600480360381019061019791906105f4565b61038e565b6040516101a991906105d9565b60405180910390f35b6101cc60048036038101906101c79190610798565b6103c1565b6040516101da9291906107d8565b60405180910390f35b6101fd60048036038101906101f891906105f4565b6103d1565b60405161020a919061081a565b60405180910390f35b61022d60048036038101906102289190610835565b6103e9565b005b610249600480360381019061024491906108f1565b6103f2565b005b610265600480360381019061026091906105f4565b6103f9565b6040516102739291906109a4565b60405180910390f35b610296600480360381019061029191906108f1565b610455565b6040516102a49291906109cd565b60405180910390f35b6102c760048036038101906102c29190610a22565b6104b3565b6040516102d491906105d9565b60405180910390f35b6102e56104e6565b6040516102f2919061081a565b60405180910390f35b600081905092915050565b60006020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b606083838360405160200161035093929190610a8b565b60405160208183030381529060405290509392505050565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000808383915091509250929050565b60076020528060005260406000206000915090505481565b50505050505050565b5050505050565b60056020528060005260406000206000915090508060000160009054906101000a90046fffffffffffffffffffffffffffffffff16908060000160109054906101000a90046fffffffffffffffffffffffffffffffff16905082565b6000606084848481818080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505090509050915091509550959350505050565b60066020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600080fd5b600080fd5b6000819050919050565b610509816104f6565b811461051457600080fd5b50565b60008135905061052681610500565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006105578261052c565b9050919050565b6105678161054c565b811461057257600080fd5b50565b6000813590506105848161055e565b92915050565b600080604083850312156105a1576105a06104ec565b5b60006105af85828601610517565b92505060206105c085828601610575565b9150509250929050565b6105d38161054c565b82525050565b60006020820190506105ee60008301846105ca565b92915050565b60006020828403121561060a576106096104ec565b5b600061061884828501610517565b91505092915050565b600080fd5b600080fd5b600080fd5b60008083601f84011261064657610645610621565b5b8235905067ffffffffffffffff81111561066357610662610626565b5b60208301915083600182028301111561067f5761067e61062b565b5b9250929050565b60008060006040848603121561069f5761069e6104ec565b5b60006106ad86828701610575565b935050602084013567ffffffffffffffff8111156106ce576106cd6104f1565b5b6106da86828701610630565b92509250509250925092565b600081519050919050565b600082825260208201905092915050565b60005b83811015610720578082015181840152602081019050610705565b60008484015250505050565b6000601f19601f8301169050919050565b6000610748826106e6565b61075281856106f1565b9350610762818560208601610702565b61076b8161072c565b840191505092915050565b60006020820190508181036000830152610790818461073d565b905092915050565b600080604083850312156107af576107ae6104ec565b5b60006107bd85828601610575565b92505060206107ce85828601610575565b9150509250929050565b60006040820190506107ed60008301856105ca565b6107fa60208301846105ca565b9392505050565b6000819050919050565b61081481610801565b82525050565b600060208201905061082f600083018461080b565b92915050565b600080600080600080600060a0888a031215610854576108536104ec565b5b60006108628a828b01610517565b97505060206108738a828b01610575565b96505060406108848a828b01610575565b955050606088013567ffffffffffffffff8111156108a5576108a46104f1565b5b6108b18a828b01610630565b9450945050608088013567ffffffffffffffff8111156108d4576108d36104f1565b5b6108e08a828b01610630565b925092505092959891949750929550565b60008060008060006080868803121561090d5761090c6104ec565b5b600061091b88828901610517565b955050602061092c88828901610575565b945050604061093d88828901610575565b935050606086013567ffffffffffffffff81111561095e5761095d6104f1565b5b61096a88828901610630565b92509250509295509295909350565b60006fffffffffffffffffffffffffffffffff82169050919050565b61099e81610979565b82525050565b60006040820190506109b96000830185610995565b6109c66020830184610995565b9392505050565b60006040820190506109e260008301856105ca565b81810360208301526109f4818461073d565b90509392505050565b60068110610a0a57600080fd5b50565b600081359050610a1c816109fd565b92915050565b600060208284031215610a3857610a376104ec565b5b6000610a4684828501610a0d565b91505092915050565b82818337600083830152505050565b6000610a6a83856106f1565b9350610a77838584610a4f565b610a808361072c565b840190509392505050565b6000604082019050610aa060008301866105ca565b8181036020830152610ab3818486610a5e565b905094935050505056fea264697066735822122002e34109ee6e1159c704fafdb800b6831788771f7937e91e13846bede240352464736f6c63430008140033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100cf5760003560e01c8063ac21631a1161008c578063b81cd86611610066578063b81cd8661461024b578063c10304f71461027c578063cd3d4fb9146102ad578063ddca3f43146102dd576100cf565b8063ac21631a146101e3578063b0ccbdf014610213578063b2db0b411461022f576100cf565b806314ae9926146100d45780632e6e0bd0146101045780633c706c6f14610134578063647846a5146101645780636d2dd29f1461018257806376474e6a146101b2575b600080fd5b6100ee60048036038101906100e9919061058a565b6102fb565b6040516100fb91906105d9565b60405180910390f35b61011e600480360381019061011991906105f4565b610306565b60405161012b91906105d9565b60405180910390f35b61014e60048036038101906101499190610686565b610339565b60405161015b9190610776565b60405180910390f35b61016c610368565b60405161017991906105d9565b60405180910390f35b61019c600480360381019061019791906105f4565b61038e565b6040516101a991906105d9565b60405180910390f35b6101cc60048036038101906101c79190610798565b6103c1565b6040516101da9291906107d8565b60405180910390f35b6101fd60048036038101906101f891906105f4565b6103d1565b60405161020a919061081a565b60405180910390f35b61022d60048036038101906102289190610835565b6103e9565b005b610249600480360381019061024491906108f1565b6103f2565b005b610265600480360381019061026091906105f4565b6103f9565b6040516102739291906109a4565b60405180910390f35b610296600480360381019061029191906108f1565b610455565b6040516102a49291906109cd565b60405180910390f35b6102c760048036038101906102c29190610a22565b6104b3565b6040516102d491906105d9565b60405180910390f35b6102e56104e6565b6040516102f2919061081a565b60405180910390f35b600081905092915050565b60006020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b606083838360405160200161035093929190610a8b565b60405160208183030381529060405290509392505050565b600460009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60016020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000808383915091509250929050565b60076020528060005260406000206000915090505481565b50505050505050565b5050505050565b60056020528060005260406000206000915090508060000160009054906101000a90046fffffffffffffffffffffffffffffffff16908060000160109054906101000a90046fffffffffffffffffffffffffffffffff16905082565b6000606084848481818080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505090509050915091509550959350505050565b60066020528060005260406000206000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600080fd5b600080fd5b6000819050919050565b610509816104f6565b811461051457600080fd5b50565b60008135905061052681610500565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006105578261052c565b9050919050565b6105678161054c565b811461057257600080fd5b50565b6000813590506105848161055e565b92915050565b600080604083850312156105a1576105a06104ec565b5b60006105af85828601610517565b92505060206105c085828601610575565b9150509250929050565b6105d38161054c565b82525050565b60006020820190506105ee60008301846105ca565b92915050565b60006020828403121561060a576106096104ec565b5b600061061884828501610517565b91505092915050565b600080fd5b600080fd5b600080fd5b60008083601f84011261064657610645610621565b5b8235905067ffffffffffffffff81111561066357610662610626565b5b60208301915083600182028301111561067f5761067e61062b565b5b9250929050565b60008060006040848603121561069f5761069e6104ec565b5b60006106ad86828701610575565b935050602084013567ffffffffffffffff8111156106ce576106cd6104f1565b5b6106da86828701610630565b92509250509250925092565b600081519050919050565b600082825260208201905092915050565b60005b83811015610720578082015181840152602081019050610705565b60008484015250505050565b6000601f19601f8301169050919050565b6000610748826106e6565b61075281856106f1565b9350610762818560208601610702565b61076b8161072c565b840191505092915050565b60006020820190508181036000830152610790818461073d565b905092915050565b600080604083850312156107af576107ae6104ec565b5b60006107bd85828601610575565b92505060206107ce85828601610575565b9150509250929050565b60006040820190506107ed60008301856105ca565b6107fa60208301846105ca565b9392505050565b6000819050919050565b61081481610801565b82525050565b600060208201905061082f600083018461080b565b92915050565b600080600080600080600060a0888a031215610854576108536104ec565b5b60006108628a828b01610517565b97505060206108738a828b01610575565b96505060406108848a828b01610575565b955050606088013567ffffffffffffffff8111156108a5576108a46104f1565b5b6108b18a828b01610630565b9450945050608088013567ffffffffffffffff8111156108d4576108d36104f1565b5b6108e08a828b01610630565b925092505092959891949750929550565b60008060008060006080868803121561090d5761090c6104ec565b5b600061091b88828901610517565b955050602061092c88828901610575565b945050604061093d88828901610575565b935050606086013567ffffffffffffffff81111561095e5761095d6104f1565b5b61096a88828901610630565b92509250509295509295909350565b60006fffffffffffffffffffffffffffffffff82169050919050565b61099e81610979565b82525050565b60006040820190506109b96000830185610995565b6109c66020830184610995565b9392505050565b60006040820190506109e260008301856105ca565b81810360208301526109f4818461073d565b90509392505050565b60068110610a0a57600080fd5b50565b600081359050610a1c816109fd565b92915050565b600060208284031215610a3857610a376104ec565b5b6000610a4684828501610a0d565b91505092915050565b82818337600083830152505050565b6000610a6a83856106f1565b9350610a77838584610a4f565b610a808361072c565b840190509392505050565b6000604082019050610aa060008301866105ca565b8181036020830152610ab3818486610a5e565b905094935050505056fea264697066735822122002e34109ee6e1159c704fafdb800b6831788771f7937e91e13846bede240352464736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "encodeModuleArg(address,bytes)": {
+        "params": {
+          "_resolverAddress": "Address of resolver.",
+          "_resolverData": "Data passed to resolver."
+        }
+      },
+      "onCreateTask(bytes32,address,address,bytes,bytes)": {
+        "params": {
+          "execAddress": "Address of contract that should be called.",
+          "execData": "Execution data to be called with / function selector if execution data is yet to be determined.",
+          "initModuleArg": "Encoded arguments for module if any.",
+          "taskCreator": "The address which created the task.",
+          "taskId": "Unique hash of the task created."
+        }
+      },
+      "postExecCall(bytes32,address,address,bytes)": {
+        "params": {
+          "execAddress": "Address of contract that should be called.",
+          "execData": "Execution data to be called with / function selector if execution data is yet to be determined.",
+          "taskCreator": "The address which created the task.",
+          "taskId": "Unique hash of the task created."
+        }
+      },
+      "preCancelTask(bytes32,address)": {
+        "details": "Modules can override taskCreator.",
+        "params": {
+          "taskCreator": "The address which created the task.",
+          "taskId": "Unique hash of the task created."
+        },
+        "returns": {
+          "_0": "address Overriden or original taskCreator."
+        }
+      },
+      "preCreateTask(address,address)": {
+        "details": "Modules can override execAddress or taskCreator. {See ProxyModule-preCreateTask}",
+        "params": {
+          "execAddress": "Address of contract that should be called.",
+          "taskCreator": "The address which created the task."
+        },
+        "returns": {
+          "_0": "address Overriden or original taskCreator.",
+          "_1": "address Overriden or original execAddress."
+        }
+      },
+      "preExecCall(bytes32,address,address,bytes)": {
+        "params": {
+          "execAddress": "Address of contract that should be called.",
+          "execData": "Execution data to be called with / function selector if execution data is yet to be determined.",
+          "taskCreator": "The address which created the task.",
+          "taskId": "Unique hash of the task created."
+        },
+        "returns": {
+          "_0": "address Overriden or original execution address.",
+          "_1": "bytes Overriden or original execution data."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "encodeModuleArg(address,bytes)": {
+        "notice": "Helper function to encode arguments for ResolverModule."
+      },
+      "onCreateTask(bytes32,address,address,bytes,bytes)": {
+        "notice": "Initiates task module whenever `createTask` is being called."
+      },
+      "postExecCall(bytes32,address,address,bytes)": {
+        "notice": "Called during `exec` and after execAddress is called."
+      },
+      "preCancelTask(bytes32,address)": {
+        "notice": "Called before taskId is removed from _createdTasks[]."
+      },
+      "preCreateTask(address,address)": {
+        "notice": "Called before generating taskId."
+      },
+      "preExecCall(bytes32,address,address,bytes)": {
+        "notice": "Called during `exec` and before execAddress is called."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 2031,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "taskCreator",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_bytes32,t_address)"
+      },
+      {
+        "astId": 2036,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "execAddresses",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_address)"
+      },
+      {
+        "astId": 2042,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "_createdTasks",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_struct(Bytes32Set)1115_storage)"
+      },
+      {
+        "astId": 2044,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "fee",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 2046,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "feeToken",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      },
+      {
+        "astId": 2052,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "timedTask",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_bytes32,t_struct(Time)5134_storage)"
+      },
+      {
+        "astId": 2058,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "taskModuleAddresses",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_enum(Module)5119,t_address)"
+      },
+      {
+        "astId": 2062,
+        "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+        "label": "nonce1Balance",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_bytes32,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_enum(Module)5119": {
+        "encoding": "inplace",
+        "label": "enum LibDataTypes.Module",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(Bytes32Set)1115_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct EnumerableSet.Bytes32Set)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Bytes32Set)1115_storage"
+      },
+      "t_mapping(t_bytes32,t_address)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_bytes32,t_struct(Time)5134_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct LibDataTypes.Time)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Time)5134_storage"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_enum(Module)5119,t_address)": {
+        "encoding": "mapping",
+        "key": "t_enum(Module)5119",
+        "label": "mapping(enum LibDataTypes.Module => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_struct(Bytes32Set)1115_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Bytes32Set",
+        "members": [
+          {
+            "astId": 1114,
+            "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+            "label": "_inner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_struct(Set)921_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Set)921_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Set",
+        "members": [
+          {
+            "astId": 916,
+            "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+            "label": "_values",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_array(t_bytes32)dyn_storage"
+          },
+          {
+            "astId": 920,
+            "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+            "label": "_positions",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_uint256)"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Time)5134_storage": {
+        "encoding": "inplace",
+        "label": "struct LibDataTypes.Time",
+        "members": [
+          {
+            "astId": 5131,
+            "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+            "label": "nextExec",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint128"
+          },
+          {
+            "astId": 5133,
+            "contract": "contracts/taskModules/ResolverModule.sol:ResolverModule",
+            "label": "interval",
+            "offset": 16,
+            "slot": "0",
+            "type": "t_uint128"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_uint128": {
+        "encoding": "inplace",
+        "label": "uint128",
+        "numberOfBytes": "16"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

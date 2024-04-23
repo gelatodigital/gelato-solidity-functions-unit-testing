@@ -1,0 +1,482 @@
+{
+  "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_ops",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInitialization",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotInitializing",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "deployer",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proxy",
+          "type": "address"
+        }
+      ],
+      "name": "DeployProxy",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "version",
+          "type": "uint64"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "oldImplementation",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newImplementation",
+          "type": "address"
+        }
+      ],
+      "name": "SetImplementation",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "bool",
+          "name": "whitelisted",
+          "type": "bool"
+        }
+      ],
+      "name": "UpdateWhitelistedImplementation",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "deploy",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "proxy",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "deployFor",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "proxy",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        }
+      ],
+      "name": "determineProxyAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        }
+      ],
+      "name": "getProxyOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_implementation",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ops",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_proxy",
+          "type": "address"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newImplementation",
+          "type": "address"
+        }
+      ],
+      "name": "setImplementation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_implementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_whitelist",
+          "type": "bool"
+        }
+      ],
+      "name": "updateWhitelistedImplementations",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whitelistedImplementations",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x7e168010b9fbd74b9348637084a568eb3a6b8cea0dda925a48a7104f9b65aeed",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+    "transactionIndex": 0,
+    "gasUsed": "2251432",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x2a79b449e2af4955c5fa1051b5c9fcae0c5511d660dea307cc4e2be71b8e9a53",
+    "transactionHash": "0x7e168010b9fbd74b9348637084a568eb3a6b8cea0dda925a48a7104f9b65aeed",
+    "logs": [],
+    "blockNumber": 24221,
+    "cumulativeGasUsed": "2251432",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "3e732f23068f6192d2fba984e5b4f4ff",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_ops\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InvalidInitialization\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"NotInitializing\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"deployer\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"}],\"name\":\"DeployProxy\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint64\",\"name\":\"version\",\"type\":\"uint64\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldImplementation\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newImplementation\",\"type\":\"address\"}],\"name\":\"SetImplementation\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementation\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bool\",\"name\":\"whitelisted\",\"type\":\"bool\"}],\"name\":\"UpdateWhitelistedImplementation\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"deploy\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"deployFor\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"proxy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"}],\"name\":\"determineProxyAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"}],\"name\":\"getProxyOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_implementation\",\"type\":\"address\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ops\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_proxy\",\"type\":\"address\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newImplementation\",\"type\":\"address\"}],\"name\":\"setImplementation\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_implementation\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_whitelist\",\"type\":\"bool\"}],\"name\":\"updateWhitelistedImplementations\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"whitelistedImplementations\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"InvalidInitialization()\":[{\"details\":\"The contract is already initialized.\"}],\"NotInitializing()\":[{\"details\":\"The contract is not initializing.\"}]},\"events\":{\"DeployProxy(address,address,address)\":{\"params\":{\"deployer\":\"Address which initiated the deployment\",\"owner\":\"The address which the proxy is for.\",\"proxy\":\"Address of deployed proxy.\"}},\"Initialized(uint64)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"},\"SetImplementation(address,address)\":{\"params\":{\"newImplementation\":\"Current OpsProxy implementation.\",\"oldImplementation\":\"Previous OpsProxy implementation.\"}},\"UpdateWhitelistedImplementation(address,bool)\":{\"params\":{\"implementation\":\"OpsProxy implementation.\",\"whitelisted\":\"Added or removed from whitelist.\"}}},\"kind\":\"dev\",\"methods\":{\"deploy()\":{\"returns\":{\"proxy\":\"Address of deployed proxy.\"}},\"deployFor(address)\":{\"params\":{\"owner\":\"Address to deploy the proxy for.\"},\"returns\":{\"proxy\":\"Address of deployed proxy.\"}},\"determineProxyAddress(address)\":{\"params\":{\"account\":\"Address to determine the proxy address for.\"}},\"getProxyOf(address)\":{\"returns\":{\"_0\":\"address Proxy address owned by account.\",\"_1\":\"bool Whether if proxy is deployed\"}},\"ownerOf(address)\":{\"returns\":{\"_0\":\"address Owner of deployed proxy.\"}}},\"stateVariables\":{\"_ownerOf\":{\"details\":\"track owner of proxy\"},\"_proxyOf\":{\"details\":\"track proxy of user\"},\"whitelistedImplementations\":{\"return\":\"bool Whether if implementation is whitelisted.\",\"returns\":{\"_0\":\"bool Whether if implementation is whitelisted.\"}}},\"version\":1},\"userdoc\":{\"events\":{\"DeployProxy(address,address,address)\":{\"notice\":\"Emitted when an OpsProxy is deployed.\"},\"SetImplementation(address,address)\":{\"notice\":\"Emitted when OpsProxy implementation to be deployed is changed.\"},\"UpdateWhitelistedImplementation(address,bool)\":{\"notice\":\"Emitted when OpsProxy implementation is added or removed from whitelist.\"}},\"kind\":\"user\",\"methods\":{\"deploy()\":{\"notice\":\"Deploys OpsProxy for the msg.sender.\"},\"deployFor(address)\":{\"notice\":\"Deploys OpsProxy for another address.\"},\"determineProxyAddress(address)\":{\"notice\":\"Determines the OpsProxy address when it is not deployed.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/opsProxy/OpsProxyFactory.sol\":\"OpsProxyFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (proxy/utils/Initializable.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev This is a base contract to aid in writing upgradeable contracts, or any kind of contract that will be deployed\\n * behind a proxy. Since proxied contracts do not make use of a constructor, it's common to move constructor logic to an\\n * external initializer function, usually called `initialize`. It then becomes necessary to protect this initializer\\n * function so it can only be called once. The {initializer} modifier provided by this contract will have this effect.\\n *\\n * The initialization functions use a version number. Once a version number is used, it is consumed and cannot be\\n * reused. This mechanism prevents re-execution of each \\\"step\\\" but allows the creation of new initialization steps in\\n * case an upgrade adds a module that needs to be initialized.\\n *\\n * For example:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```solidity\\n * contract MyToken is ERC20Upgradeable {\\n *     function initialize() initializer public {\\n *         __ERC20_init(\\\"MyToken\\\", \\\"MTK\\\");\\n *     }\\n * }\\n *\\n * contract MyTokenV2 is MyToken, ERC20PermitUpgradeable {\\n *     function initializeV2() reinitializer(2) public {\\n *         __ERC20Permit_init(\\\"MyToken\\\");\\n *     }\\n * }\\n * ```\\n *\\n * TIP: To avoid leaving the proxy in an uninitialized state, the initializer function should be called as early as\\n * possible by providing the encoded function call as the `_data` argument to {ERC1967Proxy-constructor}.\\n *\\n * CAUTION: When used with inheritance, manual care must be taken to not invoke a parent initializer twice, or to ensure\\n * that all initializers are idempotent. This is not verified automatically as constructors are by Solidity.\\n *\\n * [CAUTION]\\n * ====\\n * Avoid leaving a contract uninitialized.\\n *\\n * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation\\n * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke\\n * the {_disableInitializers} function in the constructor to automatically lock it when it is deployed:\\n *\\n * [.hljs-theme-light.nopadding]\\n * ```\\n * /// @custom:oz-upgrades-unsafe-allow constructor\\n * constructor() {\\n *     _disableInitializers();\\n * }\\n * ```\\n * ====\\n */\\nabstract contract Initializable {\\n    /**\\n     * @dev Storage of the initializable contract.\\n     *\\n     * It's implemented on a custom ERC-7201 namespace to reduce the risk of storage collisions\\n     * when using with upgradeable contracts.\\n     *\\n     * @custom:storage-location erc7201:openzeppelin.storage.Initializable\\n     */\\n    struct InitializableStorage {\\n        /**\\n         * @dev Indicates that the contract has been initialized.\\n         */\\n        uint64 _initialized;\\n        /**\\n         * @dev Indicates that the contract is in the process of being initialized.\\n         */\\n        bool _initializing;\\n    }\\n\\n    // keccak256(abi.encode(uint256(keccak256(\\\"openzeppelin.storage.Initializable\\\")) - 1)) & ~bytes32(uint256(0xff))\\n    bytes32 private constant INITIALIZABLE_STORAGE = 0xf0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00;\\n\\n    /**\\n     * @dev The contract is already initialized.\\n     */\\n    error InvalidInitialization();\\n\\n    /**\\n     * @dev The contract is not initializing.\\n     */\\n    error NotInitializing();\\n\\n    /**\\n     * @dev Triggered when the contract has been initialized or reinitialized.\\n     */\\n    event Initialized(uint64 version);\\n\\n    /**\\n     * @dev A modifier that defines a protected initializer function that can be invoked at most once. In its scope,\\n     * `onlyInitializing` functions can be used to initialize parent contracts.\\n     *\\n     * Similar to `reinitializer(1)`, except that in the context of a constructor an `initializer` may be invoked any\\n     * number of times. This behavior in the constructor can be useful during testing and is not expected to be used in\\n     * production.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier initializer() {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        // Cache values to avoid duplicated sloads\\n        bool isTopLevelCall = !$._initializing;\\n        uint64 initialized = $._initialized;\\n\\n        // Allowed calls:\\n        // - initialSetup: the contract is not in the initializing state and no previous version was\\n        //                 initialized\\n        // - construction: the contract is initialized at version 1 (no reininitialization) and the\\n        //                 current contract is just being deployed\\n        bool initialSetup = initialized == 0 && isTopLevelCall;\\n        bool construction = initialized == 1 && address(this).code.length == 0;\\n\\n        if (!initialSetup && !construction) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = 1;\\n        if (isTopLevelCall) {\\n            $._initializing = true;\\n        }\\n        _;\\n        if (isTopLevelCall) {\\n            $._initializing = false;\\n            emit Initialized(1);\\n        }\\n    }\\n\\n    /**\\n     * @dev A modifier that defines a protected reinitializer function that can be invoked at most once, and only if the\\n     * contract hasn't been initialized to a greater version before. In its scope, `onlyInitializing` functions can be\\n     * used to initialize parent contracts.\\n     *\\n     * A reinitializer may be used after the original initialization step. This is essential to configure modules that\\n     * are added through upgrades and that require initialization.\\n     *\\n     * When `version` is 1, this modifier is similar to `initializer`, except that functions marked with `reinitializer`\\n     * cannot be nested. If one is invoked in the context of another, execution will revert.\\n     *\\n     * Note that versions can jump in increments greater than 1; this implies that if multiple reinitializers coexist in\\n     * a contract, executing them in the right order is up to the developer or operator.\\n     *\\n     * WARNING: Setting the version to 2**64 - 1 will prevent any future reinitialization.\\n     *\\n     * Emits an {Initialized} event.\\n     */\\n    modifier reinitializer(uint64 version) {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing || $._initialized >= version) {\\n            revert InvalidInitialization();\\n        }\\n        $._initialized = version;\\n        $._initializing = true;\\n        _;\\n        $._initializing = false;\\n        emit Initialized(version);\\n    }\\n\\n    /**\\n     * @dev Modifier to protect an initialization function so that it can only be invoked by functions with the\\n     * {initializer} and {reinitializer} modifiers, directly or indirectly.\\n     */\\n    modifier onlyInitializing() {\\n        _checkInitializing();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Reverts if the contract is not in an initializing state. See {onlyInitializing}.\\n     */\\n    function _checkInitializing() internal view virtual {\\n        if (!_isInitializing()) {\\n            revert NotInitializing();\\n        }\\n    }\\n\\n    /**\\n     * @dev Locks the contract, preventing any future reinitialization. This cannot be part of an initializer call.\\n     * Calling this in the constructor of a contract will prevent that contract from being initialized or reinitialized\\n     * to any version. It is recommended to use this to lock implementation contracts that are designed to be called\\n     * through proxies.\\n     *\\n     * Emits an {Initialized} event the first time it is successfully executed.\\n     */\\n    function _disableInitializers() internal virtual {\\n        // solhint-disable-next-line var-name-mixedcase\\n        InitializableStorage storage $ = _getInitializableStorage();\\n\\n        if ($._initializing) {\\n            revert InvalidInitialization();\\n        }\\n        if ($._initialized != type(uint64).max) {\\n            $._initialized = type(uint64).max;\\n            emit Initialized(type(uint64).max);\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the highest version that has been initialized. See {reinitializer}.\\n     */\\n    function _getInitializedVersion() internal view returns (uint64) {\\n        return _getInitializableStorage()._initialized;\\n    }\\n\\n    /**\\n     * @dev Returns `true` if the contract is currently initializing. See {onlyInitializing}.\\n     */\\n    function _isInitializing() internal view returns (bool) {\\n        return _getInitializableStorage()._initializing;\\n    }\\n\\n    /**\\n     * @dev Returns a pointer to the storage namespace.\\n     */\\n    // solhint-disable-next-line var-name-mixedcase\\n    function _getInitializableStorage() private pure returns (InitializableStorage storage $) {\\n        assembly {\\n            $.slot := INITIALIZABLE_STORAGE\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x631188737069917d2f909d29ce62c4d48611d326686ba6683e26b72a23bfac0b\",\"license\":\"MIT\"},\"contracts/interfaces/IOpsProxyFactory.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\ninterface IOpsProxyFactory {\\r\\n    /**\\r\\n     * @notice Emitted when an OpsProxy is deployed.\\r\\n     *\\r\\n     * @param deployer Address which initiated the deployment\\r\\n     * @param owner The address which the proxy is for.\\r\\n     * @param proxy Address of deployed proxy.\\r\\n     */\\r\\n    event DeployProxy(\\r\\n        address indexed deployer,\\r\\n        address indexed owner,\\r\\n        address indexed proxy\\r\\n    );\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when OpsProxy implementation to be deployed is changed.\\r\\n     *\\r\\n     * @param oldImplementation Previous OpsProxy implementation.\\r\\n     * @param newImplementation Current OpsProxy implementation.\\r\\n     */\\r\\n    event SetImplementation(\\r\\n        address indexed oldImplementation,\\r\\n        address indexed newImplementation\\r\\n    );\\r\\n\\r\\n    /**\\r\\n     * @notice Emitted when OpsProxy implementation is added or removed from whitelist.\\r\\n     *\\r\\n     * @param implementation OpsProxy implementation.\\r\\n     * @param whitelisted Added or removed from whitelist.\\r\\n     */\\r\\n    event UpdateWhitelistedImplementation(\\r\\n        address indexed implementation,\\r\\n        bool indexed whitelisted\\r\\n    );\\r\\n\\r\\n    /**\\r\\n     * @notice Deploys OpsProxy for the msg.sender.\\r\\n     *\\r\\n     * @return proxy Address of deployed proxy.\\r\\n     */\\r\\n    function deploy() external returns (address payable proxy);\\r\\n\\r\\n    /**\\r\\n     * @notice Deploys OpsProxy for another address.\\r\\n     *\\r\\n     * @param owner Address to deploy the proxy for.\\r\\n     *\\r\\n     * @return proxy Address of deployed proxy.\\r\\n     */\\r\\n    function deployFor(address owner) external returns (address payable proxy);\\r\\n\\r\\n    /**\\r\\n     * @notice Sets the OpsProxy implementation that will be deployed by OpsProxyFactory.\\r\\n     *\\r\\n     * @param newImplementation New implementation to be set.\\r\\n     */\\r\\n    function setImplementation(address newImplementation) external;\\r\\n\\r\\n    /**\\r\\n     * @notice Add or remove OpsProxy implementation from the whitelist.\\r\\n     *\\r\\n     * @param implementation OpsProxy implementation.\\r\\n     * @param whitelist Added or removed from whitelist.\\r\\n     */\\r\\n    function updateWhitelistedImplementations(\\r\\n        address implementation,\\r\\n        bool whitelist\\r\\n    ) external;\\r\\n\\r\\n    /**\\r\\n     * @notice Determines the OpsProxy address when it is not deployed.\\r\\n     *\\r\\n     * @param account Address to determine the proxy address for.\\r\\n     */\\r\\n    function determineProxyAddress(address account)\\r\\n        external\\r\\n        view\\r\\n        returns (address);\\r\\n\\r\\n    /**\\r\\n     * @return address Proxy address owned by account.\\r\\n     * @return bool Whether if proxy is deployed\\r\\n     */\\r\\n    function getProxyOf(address account) external view returns (address, bool);\\r\\n\\r\\n    /**\\r\\n     * @return address Owner of deployed proxy.\\r\\n     */\\r\\n    function ownerOf(address proxy) external view returns (address);\\r\\n\\r\\n    /**\\r\\n     * @return bool Whether if implementation is whitelisted.\\r\\n     */\\r\\n    function whitelistedImplementations(address implementation)\\r\\n        external\\r\\n        view\\r\\n        returns (bool);\\r\\n}\\r\\n\",\"keccak256\":\"0x50cafef33afd72ceb05325baa0c47ef28afbec9e3d40b9c5c44cca84fe39f0a5\",\"license\":\"MIT\"},\"contracts/opsProxy/OpsProxyFactory.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\nimport {\\r\\n    Initializable\\r\\n} from \\\"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol\\\";\\r\\nimport {EIP173OpsProxy} from \\\"../vendor/proxy/EIP173/EIP173OpsProxy.sol\\\";\\r\\nimport {Proxied} from \\\"../vendor/proxy/EIP173/Proxied.sol\\\";\\r\\nimport {IOpsProxyFactory} from \\\"../interfaces/IOpsProxyFactory.sol\\\";\\r\\n\\r\\n// solhint-disable max-states-count\\r\\ncontract OpsProxyFactory is Initializable, Proxied, IOpsProxyFactory {\\r\\n    address public immutable ops;\\r\\n    address public implementation;\\r\\n    mapping(address => bool) public override whitelistedImplementations;\\r\\n\\r\\n    ///@dev track proxy of user\\r\\n    mapping(address => address) internal _proxyOf;\\r\\n\\r\\n    ///@dev track owner of proxy\\r\\n    mapping(address => address) internal _ownerOf;\\r\\n\\r\\n    modifier onlyOneProxy(address _account) {\\r\\n        require(_proxyOf[_account] == address(0), \\\"OpsProxyFactory: One proxy\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier notProxy(address _account) {\\r\\n        require(_ownerOf[_account] == address(0), \\\"OpsProxyFactory: No proxy\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    constructor(address _ops) {\\r\\n        ops = _ops;\\r\\n    }\\r\\n\\r\\n    function initialize(address _implementation) external initializer {\\r\\n        implementation = _implementation;\\r\\n        whitelistedImplementations[_implementation] = true;\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc IOpsProxyFactory\\r\\n    function deploy() external override returns (address payable proxy) {\\r\\n        proxy = deployFor(msg.sender);\\r\\n    }\\r\\n\\r\\n    function setImplementation(address _newImplementation)\\r\\n        external\\r\\n        onlyProxyAdmin\\r\\n    {\\r\\n        address oldImplementation = implementation;\\r\\n        require(\\r\\n            oldImplementation != _newImplementation &&\\r\\n                whitelistedImplementations[_newImplementation],\\r\\n            \\\"OpsProxyFactory: Invalid implementation\\\"\\r\\n        );\\r\\n\\r\\n        implementation = _newImplementation;\\r\\n\\r\\n        emit SetImplementation(oldImplementation, _newImplementation);\\r\\n    }\\r\\n\\r\\n    function updateWhitelistedImplementations(\\r\\n        address _implementation,\\r\\n        bool _whitelist\\r\\n    ) external onlyProxyAdmin {\\r\\n        whitelistedImplementations[_implementation] = _whitelist;\\r\\n\\r\\n        emit UpdateWhitelistedImplementation(_implementation, _whitelist);\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc IOpsProxyFactory\\r\\n    function getProxyOf(address _account)\\r\\n        external\\r\\n        view\\r\\n        override\\r\\n        returns (address, bool)\\r\\n    {\\r\\n        address proxyAddress = _proxyOf[_account];\\r\\n\\r\\n        if (proxyAddress != address(0)) return (proxyAddress, true);\\r\\n\\r\\n        proxyAddress = determineProxyAddress(_account);\\r\\n        return (proxyAddress, false);\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc IOpsProxyFactory\\r\\n    function ownerOf(address _proxy) external view override returns (address) {\\r\\n        return _ownerOf[_proxy];\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc IOpsProxyFactory\\r\\n    function deployFor(address owner)\\r\\n        public\\r\\n        override\\r\\n        onlyOneProxy(owner)\\r\\n        notProxy(owner)\\r\\n        returns (address payable proxy)\\r\\n    {\\r\\n        proxy = _deploy(bytes32(0), _getBytecode(owner));\\r\\n\\r\\n        _proxyOf[owner] = proxy;\\r\\n        _ownerOf[proxy] = owner;\\r\\n\\r\\n        emit DeployProxy(msg.sender, owner, address(proxy));\\r\\n    }\\r\\n\\r\\n    ///@inheritdoc IOpsProxyFactory\\r\\n    function determineProxyAddress(address _account)\\r\\n        public\\r\\n        view\\r\\n        override\\r\\n        returns (address)\\r\\n    {\\r\\n        address proxyAddress = _proxyOf[_account];\\r\\n        if (proxyAddress != address(0)) return proxyAddress;\\r\\n\\r\\n        bytes memory bytecode = _getBytecode(_account);\\r\\n\\r\\n        bytes32 codeHash = keccak256(\\r\\n            abi.encodePacked(\\r\\n                bytes1(0xff),\\r\\n                address(this),\\r\\n                bytes32(0),\\r\\n                keccak256(bytecode)\\r\\n            )\\r\\n        );\\r\\n\\r\\n        return address(uint160(uint256(codeHash)));\\r\\n    }\\r\\n\\r\\n    function _deploy(bytes32 _salt, bytes memory _bytecode)\\r\\n        internal\\r\\n        returns (address payable proxy)\\r\\n    {\\r\\n        assembly {\\r\\n            let endowment := 0\\r\\n            let bytecodeStart := add(_bytecode, 0x20)\\r\\n            let bytecodeLength := mload(_bytecode)\\r\\n            proxy := create2(endowment, bytecodeStart, bytecodeLength, _salt)\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function _getBytecode(address _owner) internal view returns (bytes memory) {\\r\\n        return\\r\\n            abi.encodePacked(\\r\\n                type(EIP173OpsProxy).creationCode,\\r\\n                abi.encode(address(this), implementation, _owner, bytes(\\\"\\\"))\\r\\n            );\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x145c5d991e247b07d69dc8c3fb3ce434d7f5e9a70c846e3d4fa70a891bf83eed\",\"license\":\"UNLICENSED\"},\"contracts/vendor/proxy/EIP173/EIP173OpsProxy.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\nimport \\\"./Proxy.sol\\\";\\r\\nimport {IOpsProxyFactory} from \\\"../../../interfaces/IOpsProxyFactory.sol\\\";\\r\\n\\r\\ninterface ERC165 {\\r\\n    function supportsInterface(bytes4 id) external view returns (bool);\\r\\n}\\r\\n\\r\\n/**\\r\\n * @notice Proxy implementing EIP173 for ownership management.\\r\\n * @notice This is used for OpsProxy.\\r\\n *\\r\\n * @dev 1. custom receive can be set in implementation.\\r\\n * @dev 2. transferProxyAdmin removed.\\r\\n * @dev 3. implementation can only be set to those whitelisted on OpsProxyFactory.\\r\\n */\\r\\ncontract EIP173OpsProxy is Proxy {\\r\\n    // ////////////////////////// STATES ///////////////////////////////////////////////////////////////////////\\r\\n    IOpsProxyFactory public immutable opsProxyFactory;\\r\\n\\r\\n    // ////////////////////////// EVENTS ///////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    event ProxyAdminTransferred(\\r\\n        address indexed previousAdmin,\\r\\n        address indexed newAdmin\\r\\n    );\\r\\n\\r\\n    // /////////////////////// MODIFIERS //////////////////////////////////////////////////////////////////////\\r\\n    modifier onlyWhitelistedImplementation(address _implementation) {\\r\\n        require(\\r\\n            opsProxyFactory.whitelistedImplementations(_implementation),\\r\\n            \\\"Implementation not whitelisted\\\"\\r\\n        );\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    // /////////////////////// FALLBACKS //////////////////////////////////////////////////////////////////////\\r\\n    receive() external payable override {\\r\\n        _fallback();\\r\\n    }\\r\\n\\r\\n    // /////////////////////// CONSTRUCTOR //////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    constructor(\\r\\n        address _opsProxyFactory,\\r\\n        address implementationAddress,\\r\\n        address adminAddress,\\r\\n        bytes memory data\\r\\n    ) payable {\\r\\n        opsProxyFactory = IOpsProxyFactory(_opsProxyFactory);\\r\\n        _setImplementation(implementationAddress, data);\\r\\n        _setProxyAdmin(adminAddress);\\r\\n    }\\r\\n\\r\\n    // ///////////////////// EXTERNAL ///////////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    function proxyAdmin() external view returns (address) {\\r\\n        return _proxyAdmin();\\r\\n    }\\r\\n\\r\\n    function supportsInterface(bytes4 id) external view returns (bool) {\\r\\n        if (id == 0x01ffc9a7 || id == 0x7f5828d0) {\\r\\n            return true;\\r\\n        }\\r\\n        if (id == 0xFFFFFFFF) {\\r\\n            return false;\\r\\n        }\\r\\n\\r\\n        ERC165 implementation;\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            implementation := sload(\\r\\n                0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc\\r\\n            )\\r\\n        }\\r\\n\\r\\n        // Technically this is not standard compliant as ERC-165 require 30,000 gas which that call cannot ensure\\r\\n        // because it is itself inside `supportsInterface` that might only get 30,000 gas.\\r\\n        // In practise this is unlikely to be an issue.\\r\\n        try implementation.supportsInterface(id) returns (bool support) {\\r\\n            return support;\\r\\n        } catch {\\r\\n            return false;\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function upgradeTo(address newImplementation)\\r\\n        external\\r\\n        onlyProxyAdmin\\r\\n        onlyWhitelistedImplementation(newImplementation)\\r\\n    {\\r\\n        _setImplementation(newImplementation, \\\"\\\");\\r\\n    }\\r\\n\\r\\n    function upgradeToAndCall(address newImplementation, bytes calldata data)\\r\\n        external\\r\\n        payable\\r\\n        onlyProxyAdmin\\r\\n        onlyWhitelistedImplementation(newImplementation)\\r\\n    {\\r\\n        _setImplementation(newImplementation, data);\\r\\n    }\\r\\n\\r\\n    // /////////////////////// MODIFIERS ////////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    modifier onlyProxyAdmin() {\\r\\n        require(msg.sender == _proxyAdmin(), \\\"NOT_AUTHORIZED\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    // ///////////////////////// INTERNAL //////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    function _proxyAdmin() internal view returns (address adminAddress) {\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            adminAddress := sload(\\r\\n                0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103\\r\\n            )\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function _setProxyAdmin(address newAdmin) internal {\\r\\n        address previousAdmin = _proxyAdmin();\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            sstore(\\r\\n                0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103,\\r\\n                newAdmin\\r\\n            )\\r\\n        }\\r\\n        emit ProxyAdminTransferred(previousAdmin, newAdmin);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x1a5cc13b7ef3f1a0635c52940e60daac41c36deb576ef8a9b552d65b10edd868\",\"license\":\"GPL-3.0\"},\"contracts/vendor/proxy/EIP173/Proxied.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\nabstract contract Proxied {\\r\\n    /// @notice to be used by initialisation / postUpgrade function so that only the proxy's admin can execute them\\r\\n    /// It also allows these functions to be called inside a contructor\\r\\n    /// even if the contract is meant to be used without proxy\\r\\n    modifier proxied() {\\r\\n        address proxyAdminAddress = _proxyAdmin();\\r\\n        // With hardhat-deploy proxies\\r\\n        // the proxyAdminAddress is zero only for the implementation contract\\r\\n        // if the implementation contract want to be used as a standalone/immutable contract\\r\\n        // it simply has to execute the `proxied` function\\r\\n        // This ensure the proxyAdminAddress is never zero post deployment\\r\\n        // And allow you to keep the same code for both proxied contract and immutable contract\\r\\n        if (proxyAdminAddress == address(0)) {\\r\\n            // ensure can not be called twice when used outside of proxy : no admin\\r\\n            // solhint-disable-next-line security/no-inline-assembly\\r\\n            assembly {\\r\\n                sstore(\\r\\n                    0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103,\\r\\n                    0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF\\r\\n                )\\r\\n            }\\r\\n        } else {\\r\\n            require(msg.sender == proxyAdminAddress);\\r\\n        }\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyProxyAdmin() {\\r\\n        require(msg.sender == _proxyAdmin(), \\\"NOT_AUTHORIZED\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function _proxyAdmin() internal view returns (address adminAddress) {\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            adminAddress := sload(\\r\\n                0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103\\r\\n            )\\r\\n        }\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xa6a0072ee226bfbab2760c3363a20219128a41a903c37d43baac9e6e9f9bab31\",\"license\":\"GPL-3.0\"},\"contracts/vendor/proxy/EIP173/Proxy.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\r\\npragma solidity ^0.8.12;\\r\\n\\r\\n// EIP-1967\\r\\nabstract contract Proxy {\\r\\n    // /////////////////////// EVENTS ///////////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    event ProxyImplementationUpdated(\\r\\n        address indexed previousImplementation,\\r\\n        address indexed newImplementation\\r\\n    );\\r\\n\\r\\n    // ///////////////////// EXTERNAL ///////////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    // prettier-ignore\\r\\n    receive() external payable virtual {\\r\\n        revert(\\\"ETHER_REJECTED\\\"); // explicit reject by default\\r\\n    }\\r\\n\\r\\n    fallback() external payable {\\r\\n        _fallback();\\r\\n    }\\r\\n\\r\\n    // ///////////////////////// INTERNAL //////////////////////////////////////////////////////////////////////\\r\\n\\r\\n    function _fallback() internal {\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            let implementationAddress := sload(\\r\\n                0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc\\r\\n            )\\r\\n            calldatacopy(0x0, 0x0, calldatasize())\\r\\n            let success := delegatecall(\\r\\n                gas(),\\r\\n                implementationAddress,\\r\\n                0x0,\\r\\n                calldatasize(),\\r\\n                0,\\r\\n                0\\r\\n            )\\r\\n            let retSz := returndatasize()\\r\\n            returndatacopy(0, 0, retSz)\\r\\n            switch success\\r\\n            case 0 {\\r\\n                revert(0, retSz)\\r\\n            }\\r\\n            default {\\r\\n                return(0, retSz)\\r\\n            }\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function _setImplementation(address newImplementation, bytes memory data)\\r\\n        internal\\r\\n    {\\r\\n        address previousImplementation;\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            previousImplementation := sload(\\r\\n                0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc\\r\\n            )\\r\\n        }\\r\\n\\r\\n        // solhint-disable-next-line security/no-inline-assembly\\r\\n        assembly {\\r\\n            sstore(\\r\\n                0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc,\\r\\n                newImplementation\\r\\n            )\\r\\n        }\\r\\n\\r\\n        emit ProxyImplementationUpdated(\\r\\n            previousImplementation,\\r\\n            newImplementation\\r\\n        );\\r\\n\\r\\n        if (data.length > 0) {\\r\\n            (bool success, ) = newImplementation.delegatecall(data);\\r\\n            if (!success) {\\r\\n                assembly {\\r\\n                    // This assembly ensure the revert contains the exact string data\\r\\n                    let returnDataSize := returndatasize()\\r\\n                    returndatacopy(0, 0, returnDataSize)\\r\\n                    revert(0, returnDataSize)\\r\\n                }\\r\\n            }\\r\\n        }\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x875bd9107a69ad8a95cf82b9a945c5d2f56bb9418621149012c8cc59a854e5af\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x60a06040523480156200001157600080fd5b506040516200290c3803806200290c8339818101604052810190620000379190620000dc565b8073ffffffffffffffffffffffffffffffffffffffff1660808173ffffffffffffffffffffffffffffffffffffffff1681525050506200010e565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000620000a48262000077565b9050919050565b620000b68162000097565b8114620000c257600080fd5b50565b600081519050620000d681620000ab565b92915050565b600060208284031215620000f557620000f462000072565b5b60006200010584828501620000c5565b91505092915050565b6080516127e26200012a6000396000610d7801526127e26000f3fe60806040523480156200001157600080fd5b5060043610620000b85760003560e01c8063775c300c116200007b578063775c300c14620001a1578063c4d66de814620001c3578063d784d42614620001e3578063ded89a7c1462000203578063e70abe92146200023a578063fcff48ed146200025c57620000b8565b806314afd79e14620000bd5780635c60da1b14620000f35780635c6c4bbe1462000115578063606aa715146200013557806374912cd2146200016b575b600080fd5b620000db6004803603810190620000d5919062000f44565b62000292565b604051620000ea919062000f87565b60405180910390f35b620000fd620002fb565b6040516200010c919062000f87565b60405180910390f35b6200013360048036038101906200012d919062000fe1565b6200031f565b005b6200015360048036038101906200014d919062000f44565b6200043a565b60405162000162919062000f87565b60405180910390f35b62000189600480360381019062000183919062000f44565b6200053d565b6040516200019891906200104d565b60405180910390f35b620001ab62000872565b604051620001ba91906200104d565b60405180910390f35b620001e16004803603810190620001db919062000f44565b62000884565b005b620002016004803603810190620001fb919062000f44565b62000aab565b005b6200022160048036038101906200021b919062000f44565b62000cb1565b604051620002319291906200107b565b60405180910390f35b6200024462000d76565b60405162000253919062000f87565b60405180910390f35b6200027a600480360381019062000274919062000f44565b62000d9a565b604051620002899190620010a8565b60405180910390f35b6000600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6200032962000dba565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161462000399576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401620003909062001126565b60405180910390fd5b80600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508015158273ffffffffffffffffffffffffffffffffffffffff167f0501828758a98b15fa5ef2b0f0100e2266e65c28175face06351ac414c14005f60405160405180910390a35050565b600080600260008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614620004de578091505062000538565b6000620004eb8462000de3565b9050600060ff60f81b306000801b848051906020012060405160200162000516949392919062001218565b6040516020818303038152906040528051906020012090508060001c93505050505b919050565b600081600073ffffffffffffffffffffffffffffffffffffffff16600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161462000611576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016200060890620012be565b60405180910390fd5b82600073ffffffffffffffffffffffffffffffffffffffff16600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614620006e3576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401620006da9062001330565b60405180910390fd5b620006fc6000801b620006f68662000de3565b62000e8b565b925082600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555083600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f2d8895d948115783fa362a57339c4c179365fafeafdd7dca66364ae296f50b7560405160405180910390a45050919050565b60006200087f336200053d565b905090565b60006200089062000ea4565b905060008160000160089054906101000a900460ff1615905060008260000160009054906101000a900467ffffffffffffffff1690506000808267ffffffffffffffff16148015620008df5750825b9050600060018367ffffffffffffffff1614801562000915575060003073ffffffffffffffffffffffffffffffffffffffff163b145b90508115801562000924575080155b156200095c576040517ff92ee8a900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60018560000160006101000a81548167ffffffffffffffff021916908367ffffffffffffffff1602179055508315620009ad5760018560000160086101000a81548160ff0219169083151502179055505b856000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060018060008873ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550831562000aa35760008560000160086101000a81548160ff0219169083151502179055507fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2600160405162000a9a9190620013b3565b60405180910390a15b505050505050565b62000ab562000dba565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161462000b25576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040162000b1c9062001126565b60405180910390fd5b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415801562000bd15750600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff165b62000c13576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040162000c0a9062001446565b60405180910390fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f273696cd8b7028587777b784decf945aca2e42036459d9d5fd81e493b112682860405160405180910390a35050565b6000806000600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161462000d5b57806001925092505062000d71565b62000d66846200043a565b905080600092509250505b915091565b7f000000000000000000000000000000000000000000000000000000000000000081565b60016020528060005260406000206000915054906101000a900460ff1681565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b60606040518060200162000df79062000ecc565b6020820181038252601f19601f820116604052503060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff16846040518060200160405280600081525060405160200162000e53949392919062001502565b60405160208183030381529060405260405160200162000e7592919062001598565b6040516020818303038152906040529050919050565b60008060208301835185818385f5935050505092915050565b60007ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00905090565b6111ec80620015c183390190565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600062000f0c8262000edf565b9050919050565b62000f1e8162000eff565b811462000f2a57600080fd5b50565b60008135905062000f3e8162000f13565b92915050565b60006020828403121562000f5d5762000f5c62000eda565b5b600062000f6d8482850162000f2d565b91505092915050565b62000f818162000eff565b82525050565b600060208201905062000f9e600083018462000f76565b92915050565b60008115159050919050565b62000fbb8162000fa4565b811462000fc757600080fd5b50565b60008135905062000fdb8162000fb0565b92915050565b6000806040838503121562000ffb5762000ffa62000eda565b5b60006200100b8582860162000f2d565b92505060206200101e8582860162000fca565b9150509250929050565b6000620010358262000edf565b9050919050565b620010478162001028565b82525050565b60006020820190506200106460008301846200103c565b92915050565b620010758162000fa4565b82525050565b600060408201905062001092600083018562000f76565b620010a160208301846200106a565b9392505050565b6000602082019050620010bf60008301846200106a565b92915050565b600082825260208201905092915050565b7f4e4f545f415554484f52495a4544000000000000000000000000000000000000600082015250565b60006200110e600e83620010c5565b91506200111b82620010d6565b602082019050919050565b600060208201905081810360008301526200114181620010ff565b9050919050565b60007fff0000000000000000000000000000000000000000000000000000000000000082169050919050565b6000819050919050565b620011936200118d8262001148565b62001174565b82525050565b60008160601b9050919050565b6000620011b38262001199565b9050919050565b6000620011c782620011a6565b9050919050565b620011e3620011dd8262000eff565b620011ba565b82525050565b6000819050919050565b6000819050919050565b620012126200120c82620011e9565b620011f3565b82525050565b60006200122682876200117e565b600182019150620012388286620011ce565b6014820191506200124a8285620011fd565b6020820191506200125c8284620011fd565b60208201915081905095945050505050565b7f4f707350726f7879466163746f72793a204f6e652070726f7879000000000000600082015250565b6000620012a6601a83620010c5565b9150620012b3826200126e565b602082019050919050565b60006020820190508181036000830152620012d98162001297565b9050919050565b7f4f707350726f7879466163746f72793a204e6f2070726f787900000000000000600082015250565b600062001318601983620010c5565b91506200132582620012e0565b602082019050919050565b600060208201905081810360008301526200134b8162001309565b9050919050565b6000819050919050565b600067ffffffffffffffff82169050919050565b6000819050919050565b60006200139b620013956200138f8462001352565b62001370565b6200135c565b9050919050565b620013ad816200137a565b82525050565b6000602082019050620013ca6000830184620013a2565b92915050565b7f4f707350726f7879466163746f72793a20496e76616c696420696d706c656d6560008201527f6e746174696f6e00000000000000000000000000000000000000000000000000602082015250565b60006200142e602783620010c5565b91506200143b82620013d0565b604082019050919050565b6000602082019050818103600083015262001461816200141f565b9050919050565b600081519050919050565b600082825260208201905092915050565b60005b83811015620014a457808201518184015260208101905062001487565b60008484015250505050565b6000601f19601f8301169050919050565b6000620014ce8262001468565b620014da818562001473565b9350620014ec81856020860162001484565b620014f781620014b0565b840191505092915050565b600060808201905062001519600083018762000f76565b62001528602083018662000f76565b62001537604083018562000f76565b81810360608301526200154b8184620014c1565b905095945050505050565b600081905092915050565b60006200156e8262001468565b6200157a818562001556565b93506200158c81856020860162001484565b80840191505092915050565b6000620015a6828562001561565b9150620015b4828462001561565b9150819050939250505056fe60a0604052604051620011ec380380620011ec833981810160405281019062000029919062000475565b8373ffffffffffffffffffffffffffffffffffffffff1660808173ffffffffffffffffffffffffffffffffffffffff16815250506200006f83826200008a60201b60201c565b6200008082620001bf60201b60201c565b505050506200056c565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc549050827f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc558273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f5570d70a002632a7b0b3c9304cc89efb62d8da9eca0dbd7752c83b737906829660405160405180910390a3600082511115620001ba5760008373ffffffffffffffffffffffffffffffffffffffff168360405162000161919062000553565b600060405180830381855af49150503d80600081146200019e576040519150601f19603f3d011682016040523d82523d6000602084013e620001a3565b606091505b5050905080620001b8573d806000803e806000fd5b505b505050565b6000620001d16200025460201b60201c565b9050817fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103558173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167fdf435d422321da6b195902d70fc417c06a32f88379c20dd8f2a8da07088cec2960405160405180910390a35050565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b6000604051905090565b600080fd5b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000620002be8262000291565b9050919050565b620002d081620002b1565b8114620002dc57600080fd5b50565b600081519050620002f081620002c5565b92915050565b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6200034b8262000300565b810181811067ffffffffffffffff821117156200036d576200036c62000311565b5b80604052505050565b6000620003826200027d565b905062000390828262000340565b919050565b600067ffffffffffffffff821115620003b357620003b262000311565b5b620003be8262000300565b9050602081019050919050565b60005b83811015620003eb578082015181840152602081019050620003ce565b60008484015250505050565b60006200040e620004088462000395565b62000376565b9050828152602081018484840111156200042d576200042c620002fb565b5b6200043a848285620003cb565b509392505050565b600082601f8301126200045a5762000459620002f6565b5b81516200046c848260208601620003f7565b91505092915050565b6000806000806080858703121562000492576200049162000287565b5b6000620004a287828801620002df565b9450506020620004b587828801620002df565b9350506040620004c887828801620002df565b925050606085015167ffffffffffffffff811115620004ec57620004eb6200028c565b5b620004fa8782880162000442565b91505092959194509250565b600081519050919050565b600081905092915050565b6000620005298262000506565b62000535818562000511565b935062000547818560208601620003cb565b80840191505092915050565b60006200056182846200051c565b915081905092915050565b608051610c566200059660003960008181610351015281816104cc01526105f90152610c566000f3fe60806040526004361061004e5760003560e01c806301ffc9a7146100675780633659cfe6146100a45780633e47158c146100cd5780634f1ef286146100f8578063ba1d0ff4146101145761005d565b3661005d5761005b61013f565b005b61006561013f565b005b34801561007357600080fd5b5061008e600480360381019061008991906107d5565b610188565b60405161009b919061081d565b60405180910390f35b3480156100b057600080fd5b506100cb60048036038101906100c69190610896565b6102d9565b005b3480156100d957600080fd5b506100e2610445565b6040516100ef91906108d2565b60405180910390f35b610112600480360381019061010d9190610952565b610454565b005b34801561012057600080fd5b506101296105f7565b6040516101369190610a11565b60405180910390f35b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc543660008037600080366000845af43d806000803e816000811461018357816000f35b816000fd5b60006301ffc9a760e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191614806101e35750637f5828d060e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916145b156101f157600190506102d4565b63ffffffff60e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19160361022757600090506102d4565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490508073ffffffffffffffffffffffffffffffffffffffff166301ffc9a7846040518263ffffffff1660e01b81526004016102869190610a3b565b602060405180830381865afa9250505080156102c057506040513d601f19601f820116820180604052508101906102bd9190610a82565b60015b6102ce5760009150506102d4565b80925050505b919050565b6102e161061b565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461034e576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161034590610b0c565b60405180910390fd5b807f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1663fcff48ed826040518263ffffffff1660e01b81526004016103a891906108d2565b602060405180830381865afa1580156103c5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103e99190610a82565b610428576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161041f90610b78565b60405180910390fd5b6104418260405180602001604052806000815250610644565b5050565b600061044f61061b565b905090565b61045c61061b565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146104c9576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016104c090610b0c565b60405180910390fd5b827f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1663fcff48ed826040518263ffffffff1660e01b815260040161052391906108d2565b602060405180830381865afa158015610540573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105649190610a82565b6105a3576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161059a90610b78565b60405180910390fd5b6105f18484848080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050610644565b50505050565b7f000000000000000000000000000000000000000000000000000000000000000081565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc549050827f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc558273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f5570d70a002632a7b0b3c9304cc89efb62d8da9eca0dbd7752c83b737906829660405160405180910390a360008251111561076e5760008373ffffffffffffffffffffffffffffffffffffffff16836040516107189190610c09565b600060405180830381855af49150503d8060008114610753576040519150601f19603f3d011682016040523d82523d6000602084013e610758565b606091505b505090508061076c573d806000803e806000fd5b505b505050565b600080fd5b600080fd5b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b6107b28161077d565b81146107bd57600080fd5b50565b6000813590506107cf816107a9565b92915050565b6000602082840312156107eb576107ea610773565b5b60006107f9848285016107c0565b91505092915050565b60008115159050919050565b61081781610802565b82525050565b6000602082019050610832600083018461080e565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061086382610838565b9050919050565b61087381610858565b811461087e57600080fd5b50565b6000813590506108908161086a565b92915050565b6000602082840312156108ac576108ab610773565b5b60006108ba84828501610881565b91505092915050565b6108cc81610858565b82525050565b60006020820190506108e760008301846108c3565b92915050565b600080fd5b600080fd5b600080fd5b60008083601f840112610912576109116108ed565b5b8235905067ffffffffffffffff81111561092f5761092e6108f2565b5b60208301915083600182028301111561094b5761094a6108f7565b5b9250929050565b60008060006040848603121561096b5761096a610773565b5b600061097986828701610881565b935050602084013567ffffffffffffffff81111561099a57610999610778565b5b6109a6868287016108fc565b92509250509250925092565b6000819050919050565b60006109d76109d26109cd84610838565b6109b2565b610838565b9050919050565b60006109e9826109bc565b9050919050565b60006109fb826109de565b9050919050565b610a0b816109f0565b82525050565b6000602082019050610a266000830184610a02565b92915050565b610a358161077d565b82525050565b6000602082019050610a506000830184610a2c565b92915050565b610a5f81610802565b8114610a6a57600080fd5b50565b600081519050610a7c81610a56565b92915050565b600060208284031215610a9857610a97610773565b5b6000610aa684828501610a6d565b91505092915050565b600082825260208201905092915050565b7f4e4f545f415554484f52495a4544000000000000000000000000000000000000600082015250565b6000610af6600e83610aaf565b9150610b0182610ac0565b602082019050919050565b60006020820190508181036000830152610b2581610ae9565b9050919050565b7f496d706c656d656e746174696f6e206e6f742077686974656c69737465640000600082015250565b6000610b62601e83610aaf565b9150610b6d82610b2c565b602082019050919050565b60006020820190508181036000830152610b9181610b55565b9050919050565b600081519050919050565b600081905092915050565b60005b83811015610bcc578082015181840152602081019050610bb1565b60008484015250505050565b6000610be382610b98565b610bed8185610ba3565b9350610bfd818560208601610bae565b80840191505092915050565b6000610c158284610bd8565b91508190509291505056fea26469706673582212205bcdc79a7b360ba9f660e9d63b9ada4e699abb7dd6d5198a44538a69dac7788964736f6c63430008140033a26469706673582212207faef05e7f2f01858e3b09497700840503f1eb6a5277133ee49f66c14b27305564736f6c63430008140033",
+  "deployedBytecode": "0x60806040523480156200001157600080fd5b5060043610620000b85760003560e01c8063775c300c116200007b578063775c300c14620001a1578063c4d66de814620001c3578063d784d42614620001e3578063ded89a7c1462000203578063e70abe92146200023a578063fcff48ed146200025c57620000b8565b806314afd79e14620000bd5780635c60da1b14620000f35780635c6c4bbe1462000115578063606aa715146200013557806374912cd2146200016b575b600080fd5b620000db6004803603810190620000d5919062000f44565b62000292565b604051620000ea919062000f87565b60405180910390f35b620000fd620002fb565b6040516200010c919062000f87565b60405180910390f35b6200013360048036038101906200012d919062000fe1565b6200031f565b005b6200015360048036038101906200014d919062000f44565b6200043a565b60405162000162919062000f87565b60405180910390f35b62000189600480360381019062000183919062000f44565b6200053d565b6040516200019891906200104d565b60405180910390f35b620001ab62000872565b604051620001ba91906200104d565b60405180910390f35b620001e16004803603810190620001db919062000f44565b62000884565b005b620002016004803603810190620001fb919062000f44565b62000aab565b005b6200022160048036038101906200021b919062000f44565b62000cb1565b604051620002319291906200107b565b60405180910390f35b6200024462000d76565b60405162000253919062000f87565b60405180910390f35b6200027a600480360381019062000274919062000f44565b62000d9a565b604051620002899190620010a8565b60405180910390f35b6000600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6200032962000dba565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161462000399576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401620003909062001126565b60405180910390fd5b80600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508015158273ffffffffffffffffffffffffffffffffffffffff167f0501828758a98b15fa5ef2b0f0100e2266e65c28175face06351ac414c14005f60405160405180910390a35050565b600080600260008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614620004de578091505062000538565b6000620004eb8462000de3565b9050600060ff60f81b306000801b848051906020012060405160200162000516949392919062001218565b6040516020818303038152906040528051906020012090508060001c93505050505b919050565b600081600073ffffffffffffffffffffffffffffffffffffffff16600260008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161462000611576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016200060890620012be565b60405180910390fd5b82600073ffffffffffffffffffffffffffffffffffffffff16600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614620006e3576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401620006da9062001330565b60405180910390fd5b620006fc6000801b620006f68662000de3565b62000e8b565b925082600260008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555083600360008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f2d8895d948115783fa362a57339c4c179365fafeafdd7dca66364ae296f50b7560405160405180910390a45050919050565b60006200087f336200053d565b905090565b60006200089062000ea4565b905060008160000160089054906101000a900460ff1615905060008260000160009054906101000a900467ffffffffffffffff1690506000808267ffffffffffffffff16148015620008df5750825b9050600060018367ffffffffffffffff1614801562000915575060003073ffffffffffffffffffffffffffffffffffffffff163b145b90508115801562000924575080155b156200095c576040517ff92ee8a900000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60018560000160006101000a81548167ffffffffffffffff021916908367ffffffffffffffff1602179055508315620009ad5760018560000160086101000a81548160ff0219169083151502179055505b856000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060018060008873ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550831562000aa35760008560000160086101000a81548160ff0219169083151502179055507fc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2600160405162000a9a9190620013b3565b60405180910390a15b505050505050565b62000ab562000dba565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161462000b25576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040162000b1c9062001126565b60405180910390fd5b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415801562000bd15750600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff165b62000c13576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040162000c0a9062001446565b60405180910390fd5b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f273696cd8b7028587777b784decf945aca2e42036459d9d5fd81e493b112682860405160405180910390a35050565b6000806000600260008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161462000d5b57806001925092505062000d71565b62000d66846200043a565b905080600092509250505b915091565b7f000000000000000000000000000000000000000000000000000000000000000081565b60016020528060005260406000206000915054906101000a900460ff1681565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b60606040518060200162000df79062000ecc565b6020820181038252601f19601f820116604052503060008054906101000a900473ffffffffffffffffffffffffffffffffffffffff16846040518060200160405280600081525060405160200162000e53949392919062001502565b60405160208183030381529060405260405160200162000e7592919062001598565b6040516020818303038152906040529050919050565b60008060208301835185818385f5935050505092915050565b60007ff0c57e16840df040f15088dc2f81fe391c3923bec73e23a9662efc9c229c6a00905090565b6111ec80620015c183390190565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600062000f0c8262000edf565b9050919050565b62000f1e8162000eff565b811462000f2a57600080fd5b50565b60008135905062000f3e8162000f13565b92915050565b60006020828403121562000f5d5762000f5c62000eda565b5b600062000f6d8482850162000f2d565b91505092915050565b62000f818162000eff565b82525050565b600060208201905062000f9e600083018462000f76565b92915050565b60008115159050919050565b62000fbb8162000fa4565b811462000fc757600080fd5b50565b60008135905062000fdb8162000fb0565b92915050565b6000806040838503121562000ffb5762000ffa62000eda565b5b60006200100b8582860162000f2d565b92505060206200101e8582860162000fca565b9150509250929050565b6000620010358262000edf565b9050919050565b620010478162001028565b82525050565b60006020820190506200106460008301846200103c565b92915050565b620010758162000fa4565b82525050565b600060408201905062001092600083018562000f76565b620010a160208301846200106a565b9392505050565b6000602082019050620010bf60008301846200106a565b92915050565b600082825260208201905092915050565b7f4e4f545f415554484f52495a4544000000000000000000000000000000000000600082015250565b60006200110e600e83620010c5565b91506200111b82620010d6565b602082019050919050565b600060208201905081810360008301526200114181620010ff565b9050919050565b60007fff0000000000000000000000000000000000000000000000000000000000000082169050919050565b6000819050919050565b620011936200118d8262001148565b62001174565b82525050565b60008160601b9050919050565b6000620011b38262001199565b9050919050565b6000620011c782620011a6565b9050919050565b620011e3620011dd8262000eff565b620011ba565b82525050565b6000819050919050565b6000819050919050565b620012126200120c82620011e9565b620011f3565b82525050565b60006200122682876200117e565b600182019150620012388286620011ce565b6014820191506200124a8285620011fd565b6020820191506200125c8284620011fd565b60208201915081905095945050505050565b7f4f707350726f7879466163746f72793a204f6e652070726f7879000000000000600082015250565b6000620012a6601a83620010c5565b9150620012b3826200126e565b602082019050919050565b60006020820190508181036000830152620012d98162001297565b9050919050565b7f4f707350726f7879466163746f72793a204e6f2070726f787900000000000000600082015250565b600062001318601983620010c5565b91506200132582620012e0565b602082019050919050565b600060208201905081810360008301526200134b8162001309565b9050919050565b6000819050919050565b600067ffffffffffffffff82169050919050565b6000819050919050565b60006200139b620013956200138f8462001352565b62001370565b6200135c565b9050919050565b620013ad816200137a565b82525050565b6000602082019050620013ca6000830184620013a2565b92915050565b7f4f707350726f7879466163746f72793a20496e76616c696420696d706c656d6560008201527f6e746174696f6e00000000000000000000000000000000000000000000000000602082015250565b60006200142e602783620010c5565b91506200143b82620013d0565b604082019050919050565b6000602082019050818103600083015262001461816200141f565b9050919050565b600081519050919050565b600082825260208201905092915050565b60005b83811015620014a457808201518184015260208101905062001487565b60008484015250505050565b6000601f19601f8301169050919050565b6000620014ce8262001468565b620014da818562001473565b9350620014ec81856020860162001484565b620014f781620014b0565b840191505092915050565b600060808201905062001519600083018762000f76565b62001528602083018662000f76565b62001537604083018562000f76565b81810360608301526200154b8184620014c1565b905095945050505050565b600081905092915050565b60006200156e8262001468565b6200157a818562001556565b93506200158c81856020860162001484565b80840191505092915050565b6000620015a6828562001561565b9150620015b4828462001561565b9150819050939250505056fe60a0604052604051620011ec380380620011ec833981810160405281019062000029919062000475565b8373ffffffffffffffffffffffffffffffffffffffff1660808173ffffffffffffffffffffffffffffffffffffffff16815250506200006f83826200008a60201b60201c565b6200008082620001bf60201b60201c565b505050506200056c565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc549050827f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc558273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f5570d70a002632a7b0b3c9304cc89efb62d8da9eca0dbd7752c83b737906829660405160405180910390a3600082511115620001ba5760008373ffffffffffffffffffffffffffffffffffffffff168360405162000161919062000553565b600060405180830381855af49150503d80600081146200019e576040519150601f19603f3d011682016040523d82523d6000602084013e620001a3565b606091505b5050905080620001b8573d806000803e806000fd5b505b505050565b6000620001d16200025460201b60201c565b9050817fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103558173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167fdf435d422321da6b195902d70fc417c06a32f88379c20dd8f2a8da07088cec2960405160405180910390a35050565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b6000604051905090565b600080fd5b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000620002be8262000291565b9050919050565b620002d081620002b1565b8114620002dc57600080fd5b50565b600081519050620002f081620002c5565b92915050565b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6200034b8262000300565b810181811067ffffffffffffffff821117156200036d576200036c62000311565b5b80604052505050565b6000620003826200027d565b905062000390828262000340565b919050565b600067ffffffffffffffff821115620003b357620003b262000311565b5b620003be8262000300565b9050602081019050919050565b60005b83811015620003eb578082015181840152602081019050620003ce565b60008484015250505050565b60006200040e620004088462000395565b62000376565b9050828152602081018484840111156200042d576200042c620002fb565b5b6200043a848285620003cb565b509392505050565b600082601f8301126200045a5762000459620002f6565b5b81516200046c848260208601620003f7565b91505092915050565b6000806000806080858703121562000492576200049162000287565b5b6000620004a287828801620002df565b9450506020620004b587828801620002df565b9350506040620004c887828801620002df565b925050606085015167ffffffffffffffff811115620004ec57620004eb6200028c565b5b620004fa8782880162000442565b91505092959194509250565b600081519050919050565b600081905092915050565b6000620005298262000506565b62000535818562000511565b935062000547818560208601620003cb565b80840191505092915050565b60006200056182846200051c565b915081905092915050565b608051610c566200059660003960008181610351015281816104cc01526105f90152610c566000f3fe60806040526004361061004e5760003560e01c806301ffc9a7146100675780633659cfe6146100a45780633e47158c146100cd5780634f1ef286146100f8578063ba1d0ff4146101145761005d565b3661005d5761005b61013f565b005b61006561013f565b005b34801561007357600080fd5b5061008e600480360381019061008991906107d5565b610188565b60405161009b919061081d565b60405180910390f35b3480156100b057600080fd5b506100cb60048036038101906100c69190610896565b6102d9565b005b3480156100d957600080fd5b506100e2610445565b6040516100ef91906108d2565b60405180910390f35b610112600480360381019061010d9190610952565b610454565b005b34801561012057600080fd5b506101296105f7565b6040516101369190610a11565b60405180910390f35b7f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc543660008037600080366000845af43d806000803e816000811461018357816000f35b816000fd5b60006301ffc9a760e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff191614806101e35750637f5828d060e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916145b156101f157600190506102d4565b63ffffffff60e01b827bffffffffffffffffffffffffffffffffffffffffffffffffffffffff19160361022757600090506102d4565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc5490508073ffffffffffffffffffffffffffffffffffffffff166301ffc9a7846040518263ffffffff1660e01b81526004016102869190610a3b565b602060405180830381865afa9250505080156102c057506040513d601f19601f820116820180604052508101906102bd9190610a82565b60015b6102ce5760009150506102d4565b80925050505b919050565b6102e161061b565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461034e576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161034590610b0c565b60405180910390fd5b807f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1663fcff48ed826040518263ffffffff1660e01b81526004016103a891906108d2565b602060405180830381865afa1580156103c5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906103e99190610a82565b610428576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161041f90610b78565b60405180910390fd5b6104418260405180602001604052806000815250610644565b5050565b600061044f61061b565b905090565b61045c61061b565b73ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146104c9576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016104c090610b0c565b60405180910390fd5b827f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1663fcff48ed826040518263ffffffff1660e01b815260040161052391906108d2565b602060405180830381865afa158015610540573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105649190610a82565b6105a3576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161059a90610b78565b60405180910390fd5b6105f18484848080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f82011690508083019250505050505050610644565b50505050565b7f000000000000000000000000000000000000000000000000000000000000000081565b60007fb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d610354905090565b60007f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc549050827f360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc558273ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f5570d70a002632a7b0b3c9304cc89efb62d8da9eca0dbd7752c83b737906829660405160405180910390a360008251111561076e5760008373ffffffffffffffffffffffffffffffffffffffff16836040516107189190610c09565b600060405180830381855af49150503d8060008114610753576040519150601f19603f3d011682016040523d82523d6000602084013e610758565b606091505b505090508061076c573d806000803e806000fd5b505b505050565b600080fd5b600080fd5b60007fffffffff0000000000000000000000000000000000000000000000000000000082169050919050565b6107b28161077d565b81146107bd57600080fd5b50565b6000813590506107cf816107a9565b92915050565b6000602082840312156107eb576107ea610773565b5b60006107f9848285016107c0565b91505092915050565b60008115159050919050565b61081781610802565b82525050565b6000602082019050610832600083018461080e565b92915050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061086382610838565b9050919050565b61087381610858565b811461087e57600080fd5b50565b6000813590506108908161086a565b92915050565b6000602082840312156108ac576108ab610773565b5b60006108ba84828501610881565b91505092915050565b6108cc81610858565b82525050565b60006020820190506108e760008301846108c3565b92915050565b600080fd5b600080fd5b600080fd5b60008083601f840112610912576109116108ed565b5b8235905067ffffffffffffffff81111561092f5761092e6108f2565b5b60208301915083600182028301111561094b5761094a6108f7565b5b9250929050565b60008060006040848603121561096b5761096a610773565b5b600061097986828701610881565b935050602084013567ffffffffffffffff81111561099a57610999610778565b5b6109a6868287016108fc565b92509250509250925092565b6000819050919050565b60006109d76109d26109cd84610838565b6109b2565b610838565b9050919050565b60006109e9826109bc565b9050919050565b60006109fb826109de565b9050919050565b610a0b816109f0565b82525050565b6000602082019050610a266000830184610a02565b92915050565b610a358161077d565b82525050565b6000602082019050610a506000830184610a2c565b92915050565b610a5f81610802565b8114610a6a57600080fd5b50565b600081519050610a7c81610a56565b92915050565b600060208284031215610a9857610a97610773565b5b6000610aa684828501610a6d565b91505092915050565b600082825260208201905092915050565b7f4e4f545f415554484f52495a4544000000000000000000000000000000000000600082015250565b6000610af6600e83610aaf565b9150610b0182610ac0565b602082019050919050565b60006020820190508181036000830152610b2581610ae9565b9050919050565b7f496d706c656d656e746174696f6e206e6f742077686974656c69737465640000600082015250565b6000610b62601e83610aaf565b9150610b6d82610b2c565b602082019050919050565b60006020820190508181036000830152610b9181610b55565b9050919050565b600081519050919050565b600081905092915050565b60005b83811015610bcc578082015181840152602081019050610bb1565b60008484015250505050565b6000610be382610b98565b610bed8185610ba3565b9350610bfd818560208601610bae565b80840191505092915050565b6000610c158284610bd8565b91508190509291505056fea26469706673582212205bcdc79a7b360ba9f660e9d63b9ada4e699abb7dd6d5198a44538a69dac7788964736f6c63430008140033a26469706673582212207faef05e7f2f01858e3b09497700840503f1eb6a5277133ee49f66c14b27305564736f6c63430008140033",
+  "devdoc": {
+    "errors": {
+      "InvalidInitialization()": [
+        {
+          "details": "The contract is already initialized."
+        }
+      ],
+      "NotInitializing()": [
+        {
+          "details": "The contract is not initializing."
+        }
+      ]
+    },
+    "events": {
+      "DeployProxy(address,address,address)": {
+        "params": {
+          "deployer": "Address which initiated the deployment",
+          "owner": "The address which the proxy is for.",
+          "proxy": "Address of deployed proxy."
+        }
+      },
+      "Initialized(uint64)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      },
+      "SetImplementation(address,address)": {
+        "params": {
+          "newImplementation": "Current OpsProxy implementation.",
+          "oldImplementation": "Previous OpsProxy implementation."
+        }
+      },
+      "UpdateWhitelistedImplementation(address,bool)": {
+        "params": {
+          "implementation": "OpsProxy implementation.",
+          "whitelisted": "Added or removed from whitelist."
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "deploy()": {
+        "returns": {
+          "proxy": "Address of deployed proxy."
+        }
+      },
+      "deployFor(address)": {
+        "params": {
+          "owner": "Address to deploy the proxy for."
+        },
+        "returns": {
+          "proxy": "Address of deployed proxy."
+        }
+      },
+      "determineProxyAddress(address)": {
+        "params": {
+          "account": "Address to determine the proxy address for."
+        }
+      },
+      "getProxyOf(address)": {
+        "returns": {
+          "_0": "address Proxy address owned by account.",
+          "_1": "bool Whether if proxy is deployed"
+        }
+      },
+      "ownerOf(address)": {
+        "returns": {
+          "_0": "address Owner of deployed proxy."
+        }
+      }
+    },
+    "stateVariables": {
+      "_ownerOf": {
+        "details": "track owner of proxy"
+      },
+      "_proxyOf": {
+        "details": "track proxy of user"
+      },
+      "whitelistedImplementations": {
+        "return": "bool Whether if implementation is whitelisted.",
+        "returns": {
+          "_0": "bool Whether if implementation is whitelisted."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "DeployProxy(address,address,address)": {
+        "notice": "Emitted when an OpsProxy is deployed."
+      },
+      "SetImplementation(address,address)": {
+        "notice": "Emitted when OpsProxy implementation to be deployed is changed."
+      },
+      "UpdateWhitelistedImplementation(address,bool)": {
+        "notice": "Emitted when OpsProxy implementation is added or removed from whitelist."
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "deploy()": {
+        "notice": "Deploys OpsProxy for the msg.sender."
+      },
+      "deployFor(address)": {
+        "notice": "Deploys OpsProxy for another address."
+      },
+      "determineProxyAddress(address)": {
+        "notice": "Determines the OpsProxy address when it is not deployed."
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 6267,
+        "contract": "contracts/opsProxy/OpsProxyFactory.sol:OpsProxyFactory",
+        "label": "implementation",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 6272,
+        "contract": "contracts/opsProxy/OpsProxyFactory.sol:OpsProxyFactory",
+        "label": "whitelistedImplementations",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 6277,
+        "contract": "contracts/opsProxy/OpsProxyFactory.sol:OpsProxyFactory",
+        "label": "_proxyOf",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_address)"
+      },
+      {
+        "astId": 6282,
+        "contract": "contracts/opsProxy/OpsProxyFactory.sol:OpsProxyFactory",
+        "label": "_ownerOf",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_address)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_address)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      }
+    }
+  }
+}
