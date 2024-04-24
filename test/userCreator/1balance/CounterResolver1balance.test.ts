@@ -5,24 +5,24 @@ import {
   impersonateAccount,
   setBalance,
 } from "@nomicfoundation/hardhat-network-helpers";
-import { AutomateSDK } from "@gelatonetwork/automate-sdk";
+import { Module, ModuleData, encodeResolverArgs, getTaskId } from "../../utils";
+import { AutomateSDK, TriggerType } from "@gelatonetwork/automate-sdk";
 import {
   IGelato1Balance,
   IAutomate,
   Counter,
   CounterResolver,
+  CounterWT,
+  ResolverModule,
+  ProxyModule,
 } from "../../../typechain-types";
+
 const { ethers, deployments } = hre;
 
-import {
-  getAutomateAddress,
-  getGelatoAddress,
-  getTreasuryAddress,
-} from "../../../hardhat/config/addresses";
+import { getGelatoAddress } from "../../../hardhat/config/addresses";
 
-const TASK_TREASURY_ADDRESS = getTreasuryAddress("hardhat");
 const GELATO_ADDRESS = getGelatoAddress("hardhat");
-const AUTOMATE_ADDRESS = getAutomateAddress("hardhat");
+const AUTOMATE_ADDRESS = "0x2A6C106ae13B558BB9E2Ec64Bd2f1f7BEFF3A5E0";
 const ETH = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 const ZERO_ADD = ethers.ZeroAddress;
 const FEE = ethers.parseEther("0.1");
@@ -37,9 +37,10 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
 
   let oneBalance: IGelato1Balance;
   let automate: IAutomate;
+  let resolverModule: ResolverModule;
   let counter: Counter;
   let counterResolver: CounterResolver;
-  let automateSDK: AutomateSDK;
+  let moduleData: ModuleData;
   let taskId: string;
 
   before(async function () {
@@ -48,17 +49,22 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
 
     automate = await ethers.getContractAt("IAutomate", AUTOMATE_ADDRESS);
     oneBalance = await ethers.getContractAt("IGelato1Balance", GELATO_ADDRESS);
-    console.log(
-      "\x1b[32m%s\x1b[0m",
-      "    ->",
-      `\x1b[30mImpersonating Executor ${GELATO_ADDRESS}`
-    );
+    (resolverModule = await ethers.getContractAt(
+      "ResolverModule",
+      "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+    )),
+      console.log(
+        "\x1b[32m%s\x1b[0m",
+        "    ->",
+        `\x1b[30mImpersonating Executor ${GELATO_ADDRESS}`
+      );
     await impersonateAccount(GELATO_ADDRESS);
     counter = await ethers.getContractAt("Counter", deployer);
     counterResolver = await ethers.getContractAt("CounterResolver", deployer);
-    automateSDK = new AutomateSDK(1, deployer as any);
 
     const resolverData =
       counterResolver.interface.encodeFunctionData("checker");
+    const execSelector =
+      counter.interface.getFunction("increaseCount").selector;
   });
 });
