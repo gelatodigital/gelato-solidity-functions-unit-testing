@@ -14,11 +14,15 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       forking: {
-        url: `https://rpc.arb-blueberry.gelato.digital`,
-        // blockNumber: 13400000
+        url: `https://eth-mainnet.g.alchemy.com/v2/QEjc_OQro_57j68cykGFKuJ-Pn_ZHbii`,
+        blockNumber: 17982443,
       },
     },
-
+    mainnet: {
+      accounts,
+      chainId: 1,
+      url: `https://eth-mainnet.g.alchemy.com/v2/QEjc_OQro_57j68cykGFKuJ-Pn_ZHbii`,
+    },
     // Shared Testnet
     blueberry: {
       accounts,

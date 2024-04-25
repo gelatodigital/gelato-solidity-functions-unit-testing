@@ -1,18 +1,21 @@
-import { Signer } from "ethers";
+import { Signer, ZeroAddress } from "ethers";
 import { expect } from "chai";
 import hre = require("hardhat");
 import {
   impersonateAccount,
   setBalance,
 } from "@nomicfoundation/hardhat-network-helpers";
-import { Module, ModuleData, encodeResolverArgs, getTaskId } from "../../utils";
-import { AutomateSDK, TriggerType } from "@gelatonetwork/automate-sdk";
 import {
-  IGelato1Balance,
-  IAutomate,
-  Counter,
-  CounterResolver,
-  CounterWT,
+  Module,
+  ModuleData,
+  encodeResolverArgs,
+  getTaskId,
+  getGelato1BalanceParam,
+  fastForwardTime,
+} from "../../utils";
+import {
+  Automate,
+  CounterTest,
   ResolverModule,
   ProxyModule,
 } from "../../../typechain-types";
@@ -22,7 +25,7 @@ const { ethers, deployments } = hre;
 import { getGelatoAddress } from "../../../hardhat/config/addresses";
 
 const GELATO_ADDRESS = getGelatoAddress("hardhat");
-const AUTOMATE_ADDRESS = "0x2A6C106ae13B558BB9E2Ec64Bd2f1f7BEFF3A5E0";
+const AUTOMATE_ADDRESS = "0xa85EffB2658CFd81e0B1AaD4f2364CdBCd89F3a1";
 const ETH = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 const ZERO_ADD = ethers.ZeroAddress;
 const FEE = ethers.parseEther("0.1");
@@ -34,37 +37,166 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
   let deployer: Signer;
   let deployerAddress: string;
   let executor: Signer;
-
-  let oneBalance: IGelato1Balance;
-  let automate: IAutomate;
+  let automate: Automate;
   let resolverModule: ResolverModule;
-  let counter: Counter;
-  let counterResolver: CounterResolver;
+  let counter: CounterTest;
   let moduleData: ModuleData;
+  let proxyModule: ProxyModule;
   let taskId: string;
+  let execSelector: string;
 
   before(async function () {
     await deployments.fixture();
-    [deployer] = await ethers.getSigners();
+    [deployer] = await hre.ethers.getSigners();
+    deployerAddress = await deployer.getAddress();
 
-    automate = await ethers.getContractAt("IAutomate", AUTOMATE_ADDRESS);
-    oneBalance = await ethers.getContractAt("IGelato1Balance", GELATO_ADDRESS);
-    (resolverModule = await ethers.getContractAt(
+    automate = await ethers.getContractAt("Automate", AUTOMATE_ADDRESS);
+    counter = await ethers.getContractAt(
+      "CounterTest",
+      (
+        await deployments.get("CounterTest")
+      ).address
+    );
+    console.log(await counter.getAddress());
+    resolverModule = await ethers.getContractAt(
       "ResolverModule",
-      "0x0165878A594ca255338adfa4d48449f69242Eb8F"
-    )),
-      console.log(
-        "\x1b[32m%s\x1b[0m",
-        "    ->",
-        `\x1b[30mImpersonating Executor ${GELATO_ADDRESS}`
-      );
-    await impersonateAccount(GELATO_ADDRESS);
-    counter = await ethers.getContractAt("Counter", deployer);
-    counterResolver = await ethers.getContractAt("CounterResolver", deployer);
+      (
+        await deployments.get("ResolverModule")
+      ).address
+    );
+    proxyModule = await ethers.getContractAt(
+      "ProxyModule",
+      (
+        await deployments.get("ProxyModule")
+      ).address
+    );
 
-    const resolverData =
-      counterResolver.interface.encodeFunctionData("checker");
-    const execSelector =
-      counter.interface.getFunction("increaseCount").selector;
+    // set-up
+    await automate.setModule(
+      [Module.RESOLVER, Module.PROXY],
+      [await resolverModule.getAddress(), await proxyModule.getAddress()]
+    );
+    console.log("setup done");
+    await impersonateAccount(GELATO_ADDRESS);
+    executor = await ethers.provider.getSigner(GELATO_ADDRESS);
+    console.log("executor done");
+    // Create-task
+    const resolverData = counter.interface.encodeFunctionData("checker");
+    const resolverArgs = encodeResolverArgs(
+      await counter.getAddress(),
+      resolverData
+    );
+    execSelector = counter.interface.getFunction("increaseCount").selector;
+    moduleData = {
+      modules: [Module.RESOLVER, Module.PROXY],
+      args: [resolverArgs, "0x"],
+    };
+    console.log("moduleData done");
+    taskId = taskId = getTaskId(
+      deployerAddress,
+      await counter.getAddress(),
+      execSelector,
+      moduleData,
+      ZERO_ADD
+    );
+    console.log("TaskId: ", taskId);
+    await automate
+      .connect(deployer)
+      .createTask(
+        await counter.getAddress(),
+        execSelector,
+        moduleData,
+        ZeroAddress
+      );
+    console.log("task created");
   });
+
+  it("create task", async () => {
+    const taskIds = await automate.getTaskIdsByUser(deployerAddress);
+    expect(taskIds).include(taskId);
+  });
+
+  it("create task - duplicate", async () => {
+    await expect(
+      automate
+        .connect(deployer)
+        .createTask(
+          await counter.getAddress(),
+          execSelector,
+          moduleData,
+          ZERO_ADD
+        )
+    ).to.be.revertedWith("Automate.createTask: Duplicate task");
+  });
+
+  it("exec", async () => {
+    const countBefore = await counter.count();
+
+    await execute(true);
+
+    const countAfter = await counter.count();
+    expect(countAfter).to.be.gt(countBefore);
+  });
+
+  it("exec - call reverts", async () => {
+    fastForwardTime(180);
+    const count = await counter.count();
+
+    await execute(true);
+
+    const count2 = await counter.count();
+    expect(count2).to.be.gt(count);
+
+    // will fail in off-chain simulation
+    execSelector = counter.interface.getFunction(
+      "increaseCountReverts"
+    ).selector;
+    const resolverData = counter.interface.encodeFunctionData("checkerReverts");
+    const resolverArgs = encodeResolverArgs(
+      await counter.getAddress(),
+      resolverData
+    );
+    moduleData = {
+      modules: [Module.RESOLVER, Module.PROXY],
+      args: [resolverArgs, "0x"],
+    };
+
+    await automate
+      .connect(deployer)
+      .createTask(
+        await counter.getAddress(),
+        execSelector,
+        moduleData,
+        ZERO_ADD
+      );
+
+    await expect(execute(true, true)).to.be.revertedWith(
+      "Automate.exec: OpsProxy.executeCall: Counter: reverts"
+    );
+
+    // will not fail on-chain
+    await execute(false, true);
+
+    const count3 = await counter.count();
+    expect(count3).to.be.eql(count2);
+  });
+
+  const execute = async (revertOnFailure: boolean, callReverts = false) => {
+    const [, execData] = callReverts
+      ? await counter.checkerReverts()
+      : await counter.checker();
+
+    const gelato1BalanceParam = getGelato1BalanceParam({});
+
+    await automate
+      .connect(executor)
+      .exec1Balance(
+        deployerAddress,
+        await counter.getAddress(),
+        execData,
+        moduleData,
+        gelato1BalanceParam,
+        revertOnFailure
+      );
+  };
 });
