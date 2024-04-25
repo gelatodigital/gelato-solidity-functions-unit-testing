@@ -3,9 +3,11 @@ import { ethers } from "hardhat";
 /* eslint-disable @typescript-eslint/naming-convention */
 export enum Module {
   RESOLVER,
-  TIME,
+  DEPRECATED_TIME,
   PROXY,
   SINGLE_EXEC,
+  WEB3_FUNCTION,
+  TRIGGER,
 }
 
 export type ModuleData = {
@@ -13,11 +15,28 @@ export type ModuleData = {
   args: string[];
 };
 
+export enum TriggerType {
+  TIME,
+  CRON,
+}
+
+export type TimeTrigger = {
+  type: TriggerType.TIME;
+  interval: number;
+  start?: number;
+};
+
+export type CronTrigger = {
+  type: TriggerType.CRON;
+  cron: string;
+};
+
+export type TriggerConfig = TimeTrigger | CronTrigger;
+
 export const encodeResolverArgs = (
   resolverAddress: string,
   resolverData: string
 ): string => {
-  // const encoded = ethers.utils.defaultAbiCoder.encode(["address", "bytes"], [resolverAddress, resolverData]);
   const encoded = ethers.AbiCoder.defaultAbiCoder().encode(
     ["address", "bytes"],
     [resolverAddress, resolverData]
@@ -33,4 +52,32 @@ export const encodeTimeArgs = (startTime: number, interval: number): string => {
   );
 
   return encoded;
+};
+
+export const encodeTriggerArgs = (trigger: TriggerConfig): string => {
+  let triggerArgs: string;
+
+  if (trigger.type === TriggerType.TIME) {
+    const triggerBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+      ["uint128", "uint128"],
+      [trigger.start ?? 0, trigger.interval]
+    );
+
+    triggerArgs = ethers.AbiCoder.defaultAbiCoder().encode(
+      ["uint128", "bytes"],
+      [Number(TriggerType.TIME), triggerBytes]
+    );
+  } else {
+    const triggerBytes = ethers.AbiCoder.defaultAbiCoder().encode(
+      ["string"],
+      [trigger.cron]
+    );
+
+    triggerArgs = ethers.AbiCoder.defaultAbiCoder().encode(
+      ["uint8", "bytes"],
+      [Number(TriggerType.CRON), triggerBytes]
+    );
+  }
+
+  return triggerArgs;
 };

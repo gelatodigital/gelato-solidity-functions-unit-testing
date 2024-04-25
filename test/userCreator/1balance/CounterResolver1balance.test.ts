@@ -57,7 +57,6 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
         await deployments.get("CounterTest")
       ).address
     );
-    console.log(await counter.getAddress());
     resolverModule = await ethers.getContractAt(
       "ResolverModule",
       (
@@ -76,10 +75,8 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
       [Module.RESOLVER, Module.PROXY],
       [await resolverModule.getAddress(), await proxyModule.getAddress()]
     );
-    console.log("setup done");
     await impersonateAccount(GELATO_ADDRESS);
     executor = await ethers.provider.getSigner(GELATO_ADDRESS);
-    console.log("executor done");
     // Create-task
     const resolverData = counter.interface.encodeFunctionData("checker");
     const resolverArgs = encodeResolverArgs(
@@ -91,7 +88,6 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
       modules: [Module.RESOLVER, Module.PROXY],
       args: [resolverArgs, "0x"],
     };
-    console.log("moduleData done");
     taskId = taskId = getTaskId(
       deployerAddress,
       await counter.getAddress(),
@@ -99,7 +95,6 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
       moduleData,
       ZERO_ADD
     );
-    console.log("TaskId: ", taskId);
     await automate
       .connect(deployer)
       .createTask(
@@ -108,7 +103,6 @@ describe("UserCreator Gelato Automate Resolver Contract", function () {
         moduleData,
         ZeroAddress
       );
-    console.log("task created");
   });
 
   it("create task", async () => {
