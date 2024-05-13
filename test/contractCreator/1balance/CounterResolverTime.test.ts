@@ -98,8 +98,12 @@ describe("AutomateTaskCreator test", function () {
       resolverData,
     });
 
-    expect(expectedModuleData.modules).to.eql(resolverModuleData[0]);
-    expect(expectedModuleData.args).to.eql(resolverModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(resolverModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(resolverModuleData[1])
+    );
   });
 
   it("should return singleExec module data", async () => {
@@ -110,8 +114,12 @@ describe("AutomateTaskCreator test", function () {
       singleExec: true,
     });
 
-    expect(expectedModuleData.modules).to.eql(singleExecModuleData[0]);
-    expect(expectedModuleData.args).to.eql(singleExecModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(singleExecModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(singleExecModuleData[1])
+    );
   });
 
   it("should return proxy module data", async () => {
@@ -121,8 +129,10 @@ describe("AutomateTaskCreator test", function () {
       dedicatedMsgSender: true,
     });
 
-    expect(expectedModuleData.modules).to.eql(proxyModuleData[0]);
-    expect(expectedModuleData.args).to.eql(proxyModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(proxyModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(Number(proxyModuleData[1]));
   });
 
   it("should return web3 function module data", async () => {
@@ -140,8 +150,12 @@ describe("AutomateTaskCreator test", function () {
       },
     });
 
-    expect(expectedModuleData.modules).to.eql(web3FunctionModuleData[0]);
-    expect(expectedModuleData.args).to.eql(web3FunctionModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(web3FunctionModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(web3FunctionModuleData[1])
+    );
   });
 
   it("should return time trigger module data", async () => {
@@ -158,8 +172,12 @@ describe("AutomateTaskCreator test", function () {
       },
     });
 
-    expect(expectedModuleData.modules).to.eql(timeTriggerModuleData[0]);
-    expect(expectedModuleData.args).to.eql(timeTriggerModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(timeTriggerModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(timeTriggerModuleData[1])
+    );
   });
 
   it("should return cron trigger module data", async () => {
@@ -175,8 +193,12 @@ describe("AutomateTaskCreator test", function () {
       },
     });
 
-    expect(expectedModuleData.modules).to.eql(cronTriggerModuleData[0]);
-    expect(expectedModuleData.args).to.eql(cronTriggerModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(cronTriggerModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(cronTriggerModuleData[1])
+    );
   });
 
   it("should return event trigger module data", async () => {
@@ -197,8 +219,12 @@ describe("AutomateTaskCreator test", function () {
       },
     });
 
-    expect(expectedModuleData.modules).to.eql(eventTriggerModuleData[0]);
-    expect(expectedModuleData.args).to.eql(eventTriggerModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(eventTriggerModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(eventTriggerModuleData[1])
+    );
   });
 
   it("should return block trigger module data", async () => {
@@ -211,7 +237,11 @@ describe("AutomateTaskCreator test", function () {
       },
     });
 
-    expect(expectedModuleData.modules).to.eql(blockTriggerModuleData[0]);
-    expect(expectedModuleData.args).to.eql(blockTriggerModuleData[1]);
+    expect(Number(expectedModuleData.modules)).to.eql(
+      Number(blockTriggerModuleData[0])
+    );
+    expect(Number(expectedModuleData.args)).to.eql(
+      Number(blockTriggerModuleData[1])
+    );
   });
 });

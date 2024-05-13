@@ -14,14 +14,14 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       forking: {
-        url: `https://eth-mainnet.g.alchemy.com/v2/QEjc_OQro_57j68cykGFKuJ-Pn_ZHbii`,
+        url: `https://eth-mainnet.g.alchemy.com/v2/<your-api-key>`,
         blockNumber: 17982443,
       },
     },
     mainnet: {
       accounts,
       chainId: 1,
-      url: `https://eth-mainnet.g.alchemy.com/v2/QEjc_OQro_57j68cykGFKuJ-Pn_ZHbii`,
+      url: `https://eth-mainnet.g.alchemy.com/v2/<your-api-key>`,
     },
     // Shared Testnet
     blueberry: {
